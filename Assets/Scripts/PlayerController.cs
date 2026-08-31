@@ -14,18 +14,14 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed;
     private bool isSprinting;
 
-    public float sensitivity = 2f;
+    public float sensitivity = 1.2f;
     private float rotationX = 0f;
     private float rotationY = 0f;
-
-    private float q = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        // draw a 5-unit white line from the origin for 2.5 seconds
-        Debug.DrawLine(Vector3.zero, new Vector3(5, 0, 0), Color.white, 2.5f);
     }
 
     // Update is called once per frame
@@ -36,8 +32,6 @@ public class PlayerController : MonoBehaviour
 
         isSprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        //vel = new Vector3(moveDir.x, rb.linearVelocity.y, moveDir.y);
-       
         Vector3 move = transform.forward * moveDir.y + transform.right * moveDir.x;
 
         currentSpeed = isSprinting ? MoveSpeed + SprintSpeed : MoveSpeed;
@@ -58,11 +52,6 @@ public class PlayerController : MonoBehaviour
         // Apply rotation
         Head.transform.localRotation = Quaternion.Euler(rotationY, 0, 0f);
         transform.localRotation = Quaternion.Euler(0, rotationX, 0f);
-        
-        //vel = new Vector3(moveDir.x, rb.linearVelocity.y, moveDir.y);
-        //vel.x *= currentSpeed * Time.deltaTime;
-        //vel.z *= currentSpeed * Time.deltaTime;
-
     }
 
     private void FixedUpdate()
