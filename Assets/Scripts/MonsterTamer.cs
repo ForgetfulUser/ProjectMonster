@@ -8,6 +8,8 @@ public class MonsterTamer : MonoBehaviour
     void Start()
     {
         Debug.Log(Application.dataPath);
+        MonsterLoader.LoadMonster("Arcanine");
+        //MonsterLoader.Instance.TempSave();
     }
 
     // Update is called once per frame
