@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"Zufairy","Description":"It travels the night sky, looking for special stones. It's said these stone once fell from the moon.","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":10,"MagicalAttack":30,"PhysicalDefense":5,"MagicalDefense":10,"Speed":30}

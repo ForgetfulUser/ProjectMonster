@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 287753060}
   - component: {fileID: 287753059}
   m_Layer: 0
-  m_Name: DUDHD
+  m_Name: Monster Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,9 +180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: d0564bab4e42a184eb9022ee6bcbe697, type: 3}
-  TName: Arcy
-  Description: I hate coding.
-  Health: {x: 12, y: 15}
+  Name: Monster
+  Description: A creature that dwells in the void.
+  Health: {x: 15, y: 15}
+  PhysicalAttack: 10
+  MagicalAttack: 10
+  PhysicalDefense: 10
+  MagicalDefense: 10
+  Speed: 10
 --- !u!4 &287753060
 Transform:
   m_ObjectHideFlags: 0

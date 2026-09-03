@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"Digchu","Description":"It tunnels the earth, looking for underground water to electrify. It seems to serve no purpose though.","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":9,"MagicalAttack":30,"PhysicalDefense":5,"MagicalDefense":10,"Speed":30}

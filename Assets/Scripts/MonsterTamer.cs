@@ -3,13 +3,13 @@ using System.IO;
 using UnityEngine;
 public class MonsterTamer : MonoBehaviour
 {
-    public List<Monster> Monsters = new List<Monster>();
+    public List<MonsterData> Monsters = new List<MonsterData>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Debug.Log(Application.dataPath);
         MonsterLoader.LoadMonster("Arcanine");
-        //MonsterLoader.Instance.TempSave();
+        MonsterLoader.Instance.TempSave();
     }
 
     // Update is called once per frame

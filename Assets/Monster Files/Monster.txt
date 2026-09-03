@@ -1,1 +1,0 @@
-{"Sprite":{"instanceID":66106},"Name":"Arcy","Description":"I hate coding.","Health":{"x":12.0,"y":15.0}}
