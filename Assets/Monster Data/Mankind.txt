@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"Mankind","Description":"Oh, the humanity <3","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":7,"MagicalAttack":18,"PhysicalDefense":7,"MagicalDefense":19,"Speed":6}

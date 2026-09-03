@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":66106},"Name":"Arcanizard","Description":"It rules land and seas as the most powerful monster in existence.","Health":{"x":25.0,"y":25.0}}

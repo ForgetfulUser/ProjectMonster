@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"you","Description":"","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":5,"MagicalAttack":5,"PhysicalDefense":5,"MagicalDefense":5,"Speed":5}

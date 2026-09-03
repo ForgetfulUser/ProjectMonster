@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"3 monkeys in a gorilla suit","Description":"Definitely a single gorilla, not 3 monkeys","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":40,"MagicalAttack":5,"PhysicalDefense":40,"MagicalDefense":5,"Speed":40}

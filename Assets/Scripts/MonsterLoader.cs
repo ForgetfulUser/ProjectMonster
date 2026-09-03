@@ -1,8 +1,6 @@
-using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
-using Unity.VisualScripting;
+using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 public class MonsterLoader : MonoBehaviour
@@ -29,7 +27,7 @@ public class MonsterLoader : MonoBehaviour
 
     public void TempSave()
     {
-        string filePath = Application.dataPath + "/Monster Files/Monster.txt";
+        string filePath = Application.dataPath + "/Monster Data/Monster.txt";
         if (File.Exists(filePath))
         {
             File.Delete(filePath);
@@ -53,24 +51,35 @@ public class MonsterLoader : MonoBehaviour
 
     public static void SaveMonster(MonsterData monsterToSave)
     {
-        string filePath = Application.dataPath + "/Monster Files/" + monsterToSave.Name + ".txt";
+        string filePath = Application.dataPath + "/Monster Data/" + monsterToSave.Name + ".txt";
         string json = JsonUtility.ToJson(monsterToSave);
         File.WriteAllText(filePath, json);
     }
 
-    public static void LoadMonster(string name)
+    public static MonsterData LoadMonsterByName(string name)
     {
-        string monsterFilePath = Application.dataPath + "/Monster Files/" + name + ".txt"; // Load monster file path by name
+        string monsterFilePath = Application.dataPath + "/Monster Data/" + name + ".txt"; // Generate path for monster data
 
-        if (File.Exists(monsterFilePath)) // Check file path
+        return LoadMonsterByPath(monsterFilePath);
+    }
+
+    public static MonsterData LoadMonsterByPath(string path)
+    {
+        MonsterData monster;
+        if (File.Exists(path)) // Check file path
         {
-            string monsterStr = File.ReadAllText(monsterFilePath); 
-            MonsterData monster = JsonUtility.FromJson<MonsterData>(monsterStr);
+            string monsterStr = File.ReadAllText(path);
+            monster = JsonUtility.FromJson<MonsterData>(monsterStr);
+            string spritePath = "Sprites/Monsters/" + monster.Name;
+            monster.Sprite = Resources.Load<Sprite>(spritePath);
         }
         else
         {
+            monster = new MonsterData();
             Debug.Log("FILE NOT FOUND");
         }
+
+        return monster;
     }
 
     public static List<MonsterData> LoadAllMonsterDatas(string path)
@@ -90,15 +99,14 @@ public class MonsterLoader : MonoBehaviour
 
         foreach (string filePath in filePaths)
         {
-            Debug.Log(filePath);
             try
             {
                 // Read the plain text content from the file
                 string jsonText = File.ReadAllText(filePath);
 
                 // Deserialize the text into a single ItemData object
-                MonsterData data = JsonUtility.FromJson<MonsterData>(jsonText);
-
+                MonsterData data = LoadMonsterByPath(filePath);/*JsonUtility.FromJson<MonsterData>(jsonText);
+                    */
                 // Add the populated object to your main tracking list
                 if (data != null)
                 {

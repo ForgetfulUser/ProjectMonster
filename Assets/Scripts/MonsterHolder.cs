@@ -15,7 +15,6 @@ public class MonsterHolder : MonoBehaviour
 
     public void SelectMonster()
     {
-        Debug.Log(Monster.Name);
         MonsterDisplayerUIManager.Instance.SelectMonster(Monster);
     }
 }

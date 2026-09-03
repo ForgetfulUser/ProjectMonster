@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MonsterMakerManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class MonsterMakerManager : MonoBehaviour
     public MonsterDisplayerUIManager MonsterDisplayerUIManager;
     public MonsterData CreatedMonster;
     public int Points;
+
     public void TakeName(string _name)
     {
         CreatedMonster.Name = _name;
@@ -46,6 +48,7 @@ public class MonsterMakerManager : MonoBehaviour
                 break;
         }
 
+        /*
         if(Points - pointChangeAmount < 0)
         {
             return false;
@@ -54,6 +57,7 @@ public class MonsterMakerManager : MonoBehaviour
         {
             Points -= pointChangeAmount;
         }
+        */
 
         switch (statTypes)
         {
@@ -93,11 +97,7 @@ public class MonsterMakerManager : MonoBehaviour
 
     public void OpenCreatedMonsters()
     {
-        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas(Application.dataPath + "/Monster Files");
-        foreach (MonsterData monster in monsters)
-        {
-            Debug.Log(monster.Name);
-        }
+        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas(Application.dataPath + "/Monster Data");
         if (monsters.Count == 0) Debug.Log("NO MONSTER");
         MakerPanel.SetActive(false);
         MonsterDisplayerUIManager.StartDisplayer(monsters);

@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"Tree dressed as a man","Description":"It's definetly not a tree","Health":{"x":0,"y":0},"TempHealth":0,"Accuracy":100,"PhysicalAttack":5,"MagicalAttack":5,"PhysicalDefense":40,"MagicalDefense":40,"Speed":5}
