@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.Il2Cpp;
 using UnityEngine;
 
 public class MonsterLoader : MonoBehaviour
 {
     public static MonsterLoader Instance;
-
+    public static string MonsterDataPath = Application.dataPath + "/StreamingAssets/Monster Data/";
 
     [Header("Temp Monster Settings")]
     public Sprite Sprite;
@@ -27,7 +26,7 @@ public class MonsterLoader : MonoBehaviour
 
     public void TempSave()
     {
-        string filePath = Application.dataPath + "/Monster Data/Monster.txt";
+        string filePath = MonsterDataPath + "Monster.txt";
         if (File.Exists(filePath))
         {
             File.Delete(filePath);
@@ -51,14 +50,14 @@ public class MonsterLoader : MonoBehaviour
 
     public static void SaveMonster(MonsterData monsterToSave)
     {
-        string filePath = Application.dataPath + "/Monster Data/" + monsterToSave.Name + ".txt";
+        string filePath = MonsterDataPath + monsterToSave.Name + ".txt";
         string json = JsonUtility.ToJson(monsterToSave);
         File.WriteAllText(filePath, json);
     }
 
     public static MonsterData LoadMonsterByName(string name)
     {
-        string monsterFilePath = Application.dataPath + "/Monster Data/" + name + ".txt"; // Generate path for monster data
+        string monsterFilePath = MonsterDataPath + name + ".txt"; // Generate path for monster data
 
         return LoadMonsterByPath(monsterFilePath);
     }
@@ -105,8 +104,8 @@ public class MonsterLoader : MonoBehaviour
                 string jsonText = File.ReadAllText(filePath);
 
                 // Deserialize the text into a single ItemData object
-                MonsterData data = LoadMonsterByPath(filePath);/*JsonUtility.FromJson<MonsterData>(jsonText);
-                    */
+                MonsterData data = LoadMonsterByPath(filePath);
+
                 // Add the populated object to your main tracking list
                 if (data != null)
                 {

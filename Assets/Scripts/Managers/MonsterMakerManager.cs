@@ -97,7 +97,7 @@ public class MonsterMakerManager : MonoBehaviour
 
     public void OpenCreatedMonsters()
     {
-        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas(Application.dataPath + "/Monster Data");
+        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas(MonsterLoader.MonsterDataPath);
         if (monsters.Count == 0) Debug.Log("NO MONSTER");
         MakerPanel.SetActive(false);
         MonsterDisplayerUIManager.StartDisplayer(monsters);
