@@ -4,13 +4,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.InputSystem.LowLevel;
 
 public class MonsterMakerManager : MonoBehaviour
 {
     public GameObject MakerPanel;
     public MonsterDisplayerUIManager MonsterDisplayerUIManager;
     public MonsterData CreatedMonster;
-    public int Points;
+    public int StatPoints;
+
+    public const int BASE_HEALTH = 15;
+    public const int BASE_STATS = 5;
+
+    private void Start()
+    {
+        CreatedMonster.Health = new Vector2Int(BASE_HEALTH, BASE_HEALTH);
+        CreatedMonster.PhysicalAttack = BASE_STATS;
+        CreatedMonster.PhysicalDefense = BASE_STATS;
+        CreatedMonster.MagicalAttack = BASE_STATS;
+        CreatedMonster.MagicalDefense = BASE_STATS;
+        CreatedMonster.Speed = BASE_STATS;
+    }
 
     public void TakeName(string _name)
     {
@@ -22,43 +37,46 @@ public class MonsterMakerManager : MonoBehaviour
         CreatedMonster.Description = desc;
     }
 
-    public bool TakeAmount(Single amount, StatTypes statTypes)
+    public void ChangeStatAmount(Single amount, StatTypes statTypes, out int changeAmount)
     {
-        int pointChangeAmount = 0;
+        changeAmount = 0;
 
+        // Generate pointChangeAmount by StatType
         switch (statTypes)
         {
             case StatTypes.Health:
-                pointChangeAmount = (int)amount - CreatedMonster.Health.y;
+                changeAmount = (int)amount - CreatedMonster.Health.y;
                 break;
             case StatTypes.PhysicalAttack:
-                CreatedMonster.PhysicalAttack = (int)amount;
+                changeAmount = (int)amount - CreatedMonster.PhysicalAttack;
                 break;
             case StatTypes.PhysicalDefense:
-                CreatedMonster.PhysicalDefense = (int)amount;
+                changeAmount = (int)amount - CreatedMonster.PhysicalDefense;
                 break;
             case StatTypes.MagicalAttack:
-                CreatedMonster.MagicalAttack = (int)amount;
+                changeAmount = (int)amount - CreatedMonster.MagicalAttack;
                 break;
             case StatTypes.MagicalDefense:
-                CreatedMonster.MagicalDefense = (int)amount;
+                changeAmount = (int)amount - CreatedMonster.MagicalDefense;
                 break;
             case StatTypes.Speed:
-                CreatedMonster.Speed = (int)amount;
+                changeAmount = (int)amount - CreatedMonster.Speed;
                 break;
         }
 
-        /*
-        if(Points - pointChangeAmount < 0)
+        // If there's remaining StatPoints, increase. Else, return pointChangeAmount
+        if (StatPoints - changeAmount >= 0)
         {
-            return false;
+            StatPoints -= changeAmount;
+            changeAmount = 0; // Reset Change Amount to 0 on success
         }
         else
         {
-            Points -= pointChangeAmount;
+            // Return early for failure
+            return;
         }
-        */
 
+        // Change the created monsters stat
         switch (statTypes)
         {
             case StatTypes.Health:
@@ -80,8 +98,6 @@ public class MonsterMakerManager : MonoBehaviour
                 CreatedMonster.Speed = (int)amount;
                 break;
         }
-
-        return true;
     }
 
     public void SaveMonster()

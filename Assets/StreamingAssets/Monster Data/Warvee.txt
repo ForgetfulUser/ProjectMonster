@@ -1,0 +1,1 @@
+{"Sprite":{"instanceID":0},"Name":"Warvee","Description":"It use it' tail to as a shield and tries to keep its disntace.","Health":{"x":24,"y":24},"TempHealth":0,"Accuracy":100,"PhysicalAttack":24,"MagicalAttack":23,"PhysicalDefense":25,"MagicalDefense":27,"Speed":17,"IsNewer":true}

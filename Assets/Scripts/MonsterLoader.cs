@@ -50,6 +50,7 @@ public class MonsterLoader : MonoBehaviour
 
     public static void SaveMonster(MonsterData monsterToSave)
     {
+        monsterToSave.IsNewer = true;
         string filePath = MonsterDataPath + monsterToSave.Name + ".txt";
         string json = JsonUtility.ToJson(monsterToSave);
         File.WriteAllText(filePath, json);

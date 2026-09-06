@@ -17,4 +17,6 @@ public class MonsterData
     public int PhysicalDefense;
     public int MagicalDefense;
     public int Speed;
+
+    public bool IsNewer;
 }

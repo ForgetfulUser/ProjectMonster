@@ -2,66 +2,74 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MonsterMakerUIManager : MonoBehaviour
 {
     public MonsterMakerManager MonsterMakerManager;
+    public TMP_Text StatPoint_TXT;
 
-    [Header("Text")]
-    public TMP_Text Health_TXT;
-    public TMP_Text PhysicalAttack_TXT;
-    public TMP_Text MagicalAttack_TXT;
-    public TMP_Text PhysicalDefense_TXT;
-    public TMP_Text MagicalDefense_TXT;
-    public TMP_Text Speed_TXT;
+    public TMP_InputField MonsterName_IF;
 
-    [Header("Slider")]
-    public Slider Health_SLDR;
+    [Header("Stat Texts")]
+    public List<TMP_Text> StatTypes_TXTs = new List<TMP_Text>();
 
+    [Header("Stat Sliders")]
+    public List<Slider> StatTypes_SLDRs = new List<Slider>();
+
+    private Dictionary<StatTypes, TMP_Text> m_StatTypes_TXTs = new Dictionary<StatTypes, TMP_Text>();
+    private Dictionary<StatTypes, Slider> m_StatTypes_SLDRs = new Dictionary<StatTypes, Slider>();
+
+    public List<string> stat_STRs = new List<string>();
+    private Dictionary<StatTypes, string> m_stat_STRs = new Dictionary<StatTypes, string>();
 
     private void Start()
     {
-        UpdateHealth(15);
-        UpdatePhysicalAttack(5);
-        UpdatePhysicalDefense(5);
-        UpdateMagicalAttack(5);
-        UpdateMagicalDefense(5);
-        UpdateSpeed(5);
+        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        {
+            m_StatTypes_TXTs.Add((StatTypes)i, StatTypes_TXTs[i]);
+        }
+        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        {
+            m_StatTypes_SLDRs.Add((StatTypes)i, StatTypes_SLDRs[i]);
+        }
+        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        {
+            m_stat_STRs.Add((StatTypes)i, stat_STRs[i]);
+        }
+
+        SetBaseStats();
     }
 
-    public void UpdateHealth(Single amount)
+    public void SetBaseStats()
     {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.Health);
-        Health_TXT.text = "Max Health: " + amount;
+        int baseHealth = 15;
+        int baseStats = 5;
+
+        for(int i = 0; i < (int)StatTypes.MAX_STAT_TYPE; i++)
+        {
+            if (i == 0)
+                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + baseHealth;
+            else
+                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + baseStats;
+        }
+
+        UpdateStatPoints();
     }
-    
-    public void UpdatePhysicalAttack(Single amount)
+
+    public void UpdateStat(int statTypeI)
     {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.PhysicalAttack);
-        PhysicalAttack_TXT.text = "Phys. Attack: " + amount;
+        StatTypes statType = (StatTypes)statTypeI;
+        int newAmount = (int)m_StatTypes_SLDRs[statType].value;
+
+        MonsterMakerManager.ChangeStatAmount(newAmount, statType, out int changeAmount);
+        m_StatTypes_SLDRs[statType].value -= changeAmount;
+        string text = m_stat_STRs[statType] + m_StatTypes_SLDRs[statType].value;
+        m_StatTypes_TXTs[statType].text = text;
     }
-    
-    public void UpdatePhysicalDefense(Single amount)
+
+    public void UpdateStatPoints()
     {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.PhysicalDefense);
-        PhysicalDefense_TXT.text = "Phys. Defense: " + amount;
-    }
-    
-    public void UpdateMagicalAttack(Single amount)
-    {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.MagicalAttack);
-        MagicalAttack_TXT.text = "Mag. Attack: " + amount;
-    }
-    
-    public void UpdateMagicalDefense(Single amount)
-    {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.MagicalDefense);
-        MagicalDefense_TXT.text = "Mag. Defense: " + amount;
-    }
-    
-    public void UpdateSpeed(Single amount)
-    {
-        MonsterMakerManager.TakeAmount(amount, StatTypes.Speed);
-        Speed_TXT.text = "Speed: " + amount;
+        StatPoint_TXT.text = "Stat Points: " + MonsterMakerManager.StatPoints;
     }
 }

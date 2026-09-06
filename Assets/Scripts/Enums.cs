@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-[Serializable]
+[SerializeField][Serializable]
 public enum StatTypes
 {
     Health,
