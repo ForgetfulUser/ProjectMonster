@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class MonsterData
 {
+    public string MonsterID;
     public Sprite Sprite;
     public string Name = "Monster";
     [TextArea]
