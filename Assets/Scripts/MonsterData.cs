@@ -6,6 +6,7 @@ public class MonsterData
 {
     public string MonsterID;
     public Sprite Sprite;
+    public MonsterRarity MonsterRarity;
     public string Name = "Monster";
     [TextArea]
     public string Description = "Description";

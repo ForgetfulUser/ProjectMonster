@@ -20,6 +20,11 @@ public class MonsterMakerUIManager : MonoBehaviour
     private Dictionary<StatTypes, TMP_Text> m_StatTypes_TXTs = new Dictionary<StatTypes, TMP_Text>();
     private Dictionary<StatTypes, Slider> m_StatTypes_SLDRs = new Dictionary<StatTypes, Slider>();
 
+    [Header("Dropdowns")]
+    public TMP_Dropdown MonsterRariry_DRPDN;
+    public TMP_Dropdown MonsterClass_DRPDN;
+
+
     public List<string> stat_STRs = new List<string>();
     private Dictionary<StatTypes, string> m_stat_STRs = new Dictionary<StatTypes, string>();
 
@@ -43,15 +48,18 @@ public class MonsterMakerUIManager : MonoBehaviour
 
     public void SetBaseStats()
     {
-        int baseHealth = 15;
-        int baseStats = 5;
-
         for(int i = 0; i < (int)StatTypes.MAX_STAT_TYPE; i++)
         {
             if (i == 0)
-                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + baseHealth;
+            {
+                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + MonsterMakerManager.BASE_HEALTH;
+                m_StatTypes_SLDRs[(StatTypes)i].value = MonsterMakerManager.BASE_HEALTH;
+            }
             else
-                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + baseStats;
+            {
+                m_StatTypes_SLDRs[(StatTypes)i].value = MonsterMakerManager.BASE_STATS;
+                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + MonsterMakerManager.BASE_STATS;
+            }
         }
 
         UpdateStatPoints();
@@ -71,5 +79,12 @@ public class MonsterMakerUIManager : MonoBehaviour
     public void UpdateStatPoints()
     {
         StatPoint_TXT.text = "Stat Points: " + MonsterMakerManager.StatPoints;
+    }
+
+    public void UpdateMonsterRarity(Int32 rarity)
+    {
+        rarity++;
+        MonsterMakerManager.SetMonsterRarity((MonsterRarity)rarity);
+        UpdateStatPoints();
     }
 }

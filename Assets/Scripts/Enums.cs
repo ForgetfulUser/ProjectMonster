@@ -13,3 +13,16 @@ public enum StatTypes
     Speed,
     MAX_STAT_TYPE
 }
+
+[SerializeField][Serializable]
+public enum MonsterRarity
+{
+    UnusedMonsterRarity,
+    Common,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary,
+    Mythic,
+    Ancient
+}

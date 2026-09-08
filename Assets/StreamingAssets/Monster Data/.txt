@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":0,"Name":"","Description":"","Health":{"x":65,"y":65},"TempHealth":0,"Accuracy":100,"PhysicalAttack":5,"MagicalAttack":5,"PhysicalDefense":5,"MagicalDefense":5,"Speed":5,"IsNewer":true}

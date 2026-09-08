@@ -4,27 +4,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.InputSystem.LowLevel;
 
 public class MonsterMakerManager : MonoBehaviour
 {
     public GameObject MakerPanel;
     public MonsterDisplayerUIManager MonsterDisplayerUIManager;
+    public MonsterMakerUIManager MonsterMakerUIManager;
     public MonsterData CreatedMonster;
     public int StatPoints;
 
     public const int BASE_HEALTH = 15;
     public const int BASE_STATS = 5;
 
+    public List<int> StatPoints_LST = new List<int>();
+    public Dictionary<MonsterRarity, int> StatPoints_DIC = new Dictionary<MonsterRarity, int>();
+
     private void Start()
     {
-        CreatedMonster.Health = new Vector2Int(BASE_HEALTH, BASE_HEALTH);
-        CreatedMonster.PhysicalAttack = BASE_STATS;
-        CreatedMonster.PhysicalDefense = BASE_STATS;
-        CreatedMonster.MagicalAttack = BASE_STATS;
-        CreatedMonster.MagicalDefense = BASE_STATS;
-        CreatedMonster.Speed = BASE_STATS;
+        SetBasicStats();
+
+        for(int i = 0; i <= (int)MonsterRarity.Ancient; i++)
+        {
+            StatPoints_DIC.Add((MonsterRarity)i, StatPoints_LST[i]);
+        }
     }
 
     public void TakeName(string _name)
@@ -100,6 +102,33 @@ public class MonsterMakerManager : MonoBehaviour
         }
     }
 
+    public void SetMonsterRarity(MonsterRarity monsterRarity)
+    {
+        CreatedMonster.MonsterRarity = monsterRarity;
+
+        // Set new Stat Points
+        StatPoints = StatPoints_DIC[monsterRarity];
+
+        // Add stat points for minmum stats
+        StatPoints += (BASE_STATS * 5) + 15;
+
+        // Removed statpoints based on current stats
+        StatPoints -= CreatedMonster.Health.y;
+        StatPoints -= CreatedMonster.PhysicalAttack;
+        StatPoints -= CreatedMonster.PhysicalDefense;
+        StatPoints -= CreatedMonster.MagicalAttack;
+        StatPoints -= CreatedMonster.MagicalDefense;
+        StatPoints -= CreatedMonster.Speed;
+
+        // If too many stat points have been used, reset monster stats and StatPoints
+        if (StatPoints < 0)
+        {
+            SetBasicStats();
+            MonsterMakerUIManager.SetBaseStats();
+            StatPoints = StatPoints_DIC[monsterRarity];
+        }
+    }
+
     public void SaveMonster()
     {
         if (CreatedMonster.Name == "Monster")
@@ -117,5 +146,15 @@ public class MonsterMakerManager : MonoBehaviour
         if (monsters.Count == 0) Debug.Log("NO MONSTER");
         MakerPanel.SetActive(false);
         MonsterDisplayerUIManager.StartDisplayer(monsters);
+    }
+
+    public void SetBasicStats()
+    {
+        CreatedMonster.Health = new Vector2Int(BASE_HEALTH, BASE_HEALTH);
+        CreatedMonster.PhysicalAttack = BASE_STATS;
+        CreatedMonster.PhysicalDefense = BASE_STATS;
+        CreatedMonster.MagicalAttack = BASE_STATS;
+        CreatedMonster.MagicalDefense = BASE_STATS;
+        CreatedMonster.Speed = BASE_STATS;
     }
 }

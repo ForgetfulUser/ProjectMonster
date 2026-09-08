@@ -59,8 +59,6 @@ public class MonsterDisplayerUIManager : MonoBehaviour
         MagicalAttack_TXT.text = "Mag. Attack: " + monster.MagicalAttack;
         MagicalDefense_TXT.text = "Mag. Defense: " + monster.MagicalDefense;
 
-        Debug.Log(monster.Sprite);
-
         if(monster.Sprite != null)
         {
             Sprite_IMG.gameObject.SetActive(true);
