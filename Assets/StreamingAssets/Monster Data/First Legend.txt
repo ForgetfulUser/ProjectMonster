@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":5,"Name":"First Legend","Description":"The very fist legendary monster to exist. What is it...?","Health":{"x":58,"y":58},"TempHealth":0,"Accuracy":100,"PhysicalAttack":28,"MagicalAttack":24,"PhysicalDefense":25,"MagicalDefense":19,"Speed":36,"IsNewer":true}

@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":6,"MonsterType1":3,"MonsterType2":0,"Element1":1,"Element2":2,"Name":"Izzet Dragon","Description":"Is it a dragon?","Health":{"x":65,"y":65},"TempHealth":0,"Accuracy":100,"PhysicalAttack":24,"MagicalAttack":40,"PhysicalDefense":24,"MagicalDefense":37,"Speed":40,"IsNewer":true}

@@ -87,4 +87,24 @@ public class MonsterMakerUIManager : MonoBehaviour
         MonsterMakerManager.SetMonsterRarity((MonsterRarity)rarity);
         UpdateStatPoints();
     }
+
+    public void UpdateMonsterType1(Int32 type)
+    {
+        MonsterMakerManager.CreatedMonster.MonsterType1 = (MonsterType)type;
+    }
+
+    public void UpdateMonsterType2(Int32 type)
+    {
+        MonsterMakerManager.CreatedMonster.MonsterType2 = (MonsterType)type;
+    }
+
+    public void UpdateMonsterElement1(Int32 type)
+    {
+        MonsterMakerManager.CreatedMonster.Element1 = (ElementType)type;
+    }
+
+    public void UpdateMonsterElement2(Int32 type)
+    {
+        MonsterMakerManager.CreatedMonster.Element2 = (ElementType)type;
+    }
 }

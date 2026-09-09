@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine.UI;
 
 public class MonsterDisplayerUIManager : MonoBehaviour
@@ -17,6 +16,11 @@ public class MonsterDisplayerUIManager : MonoBehaviour
     [Header("Selected Monster Stuff")]
     public Image Sprite_IMG;
     public TMP_Text Name_TXT;
+    public TMP_Text Rarity_TXT;
+    public TMP_Text Type1_TXT;
+    public TMP_Text Type2_TXT;
+    public TMP_Text Element1_TXT;
+    public TMP_Text Element2_TXT;
     public TMP_Text Description_TXT;
     public TMP_Text Health_TXT;
     public TMP_Text Speed_TXT;
@@ -51,6 +55,11 @@ public class MonsterDisplayerUIManager : MonoBehaviour
     public void SelectMonster(MonsterData monster)
     {
         Name_TXT.text = monster.Name;
+        Rarity_TXT.text = monster.MonsterRarity.ToString();
+        Type1_TXT.text = monster.MonsterType1.ToString();
+        Type2_TXT.text = monster.MonsterType2 != MonsterType.None ? monster.MonsterType2.ToString() : "";
+        Element1_TXT.text = monster.Element1.ToString();
+        Element2_TXT.text = monster.Element2 != ElementType.None ? monster.Element2.ToString() : "";
         Description_TXT.text = monster.Description;
         Health_TXT.text = "Max Health: " + monster.Health.y;
         Speed_TXT.text = "Speed: " + monster.Speed;
