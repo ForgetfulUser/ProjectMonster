@@ -10740,7 +10740,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1532135254}
         m_TargetAssemblyTypeName: MonsterMakerUIManager, Assembly-CSharp
-        m_MethodName: UpdateMonsterRarity
+        m_MethodName: UpdateMonsterElement2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13180,7 +13180,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1532135254}
         m_TargetAssemblyTypeName: MonsterMakerUIManager, Assembly-CSharp
-        m_MethodName: UpdateMonsterRarity
+        m_MethodName: UpdateMonsterElement1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
