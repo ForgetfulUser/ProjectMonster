@@ -21,11 +21,24 @@ public class MonsterMakerManager : MonoBehaviour
 
     private void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         SetBasicStats();
 
         for(int i = 0; i <= (int)MonsterRarity.Ancient; i++)
         {
             StatPoints_DIC.Add((MonsterRarity)i, StatPoints_LST[i]);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 
