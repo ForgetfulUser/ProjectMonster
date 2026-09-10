@@ -17,7 +17,7 @@ public enum StatTypes
 [SerializeField][Serializable]
 public enum MonsterRarity
 {
-    UnusedMonsterRarity,
+    None,
     Common,
     Uncommon,
     Rare,
@@ -37,7 +37,8 @@ public enum MonsterType
     Canine,
     Feline,
     Ghost,
-    Elemental
+    Elemental,
+    Plant
 }
 
 [SerializeField][Serializable]

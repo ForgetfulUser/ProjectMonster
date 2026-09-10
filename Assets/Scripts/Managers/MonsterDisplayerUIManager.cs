@@ -37,12 +37,12 @@ public class MonsterDisplayerUIManager : MonoBehaviour
     public void StartDisplayer(List<MonsterData> monsters)
     {
         DisplayPanel.SetActive(true);
-        foreach(MonsterHolder holder in Holders)
+        foreach (MonsterHolder holder in Holders)
         {
             Destroy(holder.gameObject);
         }
         Holders.Clear();
-        foreach (MonsterData monster in monsters) 
+        foreach (MonsterData monster in monsters)
         {
             MonsterHolder holder = Instantiate(MonsterHolder_PRFB, Content);
             holder.InitiateHolder(monster);
@@ -54,29 +54,31 @@ public class MonsterDisplayerUIManager : MonoBehaviour
 
     public void SelectMonster(MonsterData monster)
     {
+        SelectedMonster = monster;
+        Sprite_IMG.sprite = monster.Sprite;
+
         Name_TXT.text = monster.Name;
         Rarity_TXT.text = monster.MonsterRarity.ToString();
         Type1_TXT.text = monster.MonsterType1.ToString();
         Type2_TXT.text = monster.MonsterType2 != MonsterType.None ? monster.MonsterType2.ToString() : "";
+        if (Type2_TXT.text == "") Type2_TXT.gameObject.SetActive(false); else Type2_TXT.gameObject.SetActive(true);
         Element1_TXT.text = monster.Element1.ToString();
         Element2_TXT.text = monster.Element2 != ElementType.None ? monster.Element2.ToString() : "";
+        if (Element2_TXT.text == "") Element2_TXT.gameObject.SetActive(false); else Element2_TXT.gameObject.SetActive(true);
         Description_TXT.text = monster.Description;
         Health_TXT.text = "Max Health: " + monster.Health.y;
         Speed_TXT.text = "Speed: " + monster.Speed;
-        PhysicalAttack_TXT.text = "Phys. Attack: " + monster.PhysicalAttack;
-        PhysicalDefense_TXT.text = "Phys. Defense: " + monster.PhysicalDefense;
-        MagicalAttack_TXT.text = "Mag. Attack: " + monster.MagicalAttack;
-        MagicalDefense_TXT.text = "Mag. Defense: " + monster.MagicalDefense;
+        PhysicalAttack_TXT.text = "Physical Attack: " + monster.PhysicalAttack;
+        PhysicalDefense_TXT.text = "Physical Defense: " + monster.PhysicalDefense;
+        MagicalAttack_TXT.text = "Magical Attack: " + monster.MagicalAttack;
+        MagicalDefense_TXT.text = "Magical Defense: " + monster.MagicalDefense;
+    }
 
-        if(monster.Sprite != null)
-        {
-            Sprite_IMG.gameObject.SetActive(true);
-            Sprite_IMG.sprite = monster.Sprite;
-        }
-        else
-        {
-            Sprite_IMG.gameObject.SetActive(false);
-        }
+    public void EditMonster()
+    {
+        MonsterMakerManager.EditMonster(SelectedMonster);
+
+        BackToMakeMonters();
     }
 
     public void BackToMakeMonters()

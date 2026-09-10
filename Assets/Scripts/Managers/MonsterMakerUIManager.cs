@@ -1,8 +1,10 @@
 using System;
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterMakerUIManager : MonoBehaviour
 {
@@ -21,9 +23,13 @@ public class MonsterMakerUIManager : MonoBehaviour
     private Dictionary<StatTypes, Slider> m_StatTypes_SLDRs = new Dictionary<StatTypes, Slider>();
 
     [Header("Dropdowns")]
-    public TMP_Dropdown MonsterRariry_DRPDN;
-    public TMP_Dropdown MonsterClass_DRPDN;
+    public TMP_Dropdown MonsterRarity_DRPDN;
+    public TMP_Dropdown MonsterType1_DRPDN;
+    public TMP_Dropdown MonsterType2_DRPDN;
+    public TMP_Dropdown MonsterElement1_DRPDN;
+    public TMP_Dropdown MonsterElement2_DRPDN;
 
+    public TMP_InputField Description_IF;
 
     public List<string> stat_STRs = new List<string>();
     private Dictionary<StatTypes, string> m_stat_STRs = new Dictionary<StatTypes, string>();
@@ -42,8 +48,57 @@ public class MonsterMakerUIManager : MonoBehaviour
         {
             m_stat_STRs.Add((StatTypes)i, stat_STRs[i]);
         }
+    }
 
-        SetBaseStats();
+    public void UpdateWithMonster(MonsterData monster)
+    {
+        MonsterName_IF.text = monster.Name; // Set Name
+
+        int rarityValue = /*monster.MonsterRarity == MonsterRarity.Legendary ? (int)monster.MonsterRarity :*/ (int)monster.MonsterRarity - 1;
+        MonsterRarity_DRPDN.value = rarityValue; // Set Rarity
+
+        // Set Types
+        MonsterType1_DRPDN.value = (int)monster.MonsterType1;
+        MonsterType2_DRPDN.value = (int)monster.MonsterType2;
+
+        // Set Elements
+        MonsterElement1_DRPDN.value = (int)monster.Element1;
+        MonsterElement2_DRPDN.value = (int)monster.Element2;
+
+        // Set Stat Slider Values & Text
+        for(int i = 0; i < (int)StatTypes.MAX_STAT_TYPE; i++)
+        {
+            StatTypes statType = (StatTypes)i;
+
+            switch(statType)
+            {
+                case StatTypes.Health:
+                    m_StatTypes_SLDRs[statType].value = monster.Health.y;
+                    break;
+                case StatTypes.PhysicalAttack:
+                    m_StatTypes_SLDRs[statType].value = monster.PhysicalAttack;
+                    break;
+                case StatTypes.PhysicalDefense:
+                    m_StatTypes_SLDRs[statType].value = monster.PhysicalDefense;
+                    break;
+                case StatTypes.MagicalAttack:
+                    m_StatTypes_SLDRs[statType].value = monster.MagicalAttack;
+                    break;
+                case StatTypes.MagicalDefense:
+                    m_StatTypes_SLDRs[statType].value = monster.MagicalDefense;
+                    break;
+                case StatTypes.Speed:
+                    m_StatTypes_SLDRs[statType].value = monster.Speed;
+                    break;
+            }
+
+            string text = m_stat_STRs[statType] + m_StatTypes_SLDRs[statType].value;
+            m_StatTypes_TXTs[statType].text = text;
+        }
+        
+        Description_IF.text = monster.Description; // Set Description
+
+        UpdateStatPoints();
     }
 
     public void SetBaseStats()

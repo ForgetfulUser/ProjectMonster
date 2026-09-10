@@ -29,6 +29,14 @@ public class MonsterMakerManager : MonoBehaviour
         }
     }
 
+    public void EditMonster(MonsterData monster)
+    {
+        CreatedMonster = monster;
+        if (CreatedMonster.MonsterRarity == MonsterRarity.None) CreatedMonster.MonsterRarity = MonsterRarity.Ancient;
+        AdjustStatPoints();
+        MonsterMakerUIManager.UpdateWithMonster(CreatedMonster);
+    }
+
     public void TakeName(string _name)
     {
         CreatedMonster.Name = _name;
@@ -136,6 +144,7 @@ public class MonsterMakerManager : MonoBehaviour
             Debug.Log("Rename Monster");
             return;
         }
+
         MonsterLoader.SaveMonster(CreatedMonster);
         SceneManager.LoadScene("Monster Maker Scene");
     }
@@ -156,5 +165,24 @@ public class MonsterMakerManager : MonoBehaviour
         CreatedMonster.MagicalAttack = BASE_STATS;
         CreatedMonster.MagicalDefense = BASE_STATS;
         CreatedMonster.Speed = BASE_STATS;
+    }
+
+    public void AdjustStatPoints()
+    {
+        // Set new Stat Points
+        StatPoints = StatPoints_DIC[CreatedMonster.MonsterRarity];
+
+        // Add stat points for minmum stats
+        StatPoints += (BASE_STATS * 5) + 15;
+
+        // Removed statpoints based on current stats
+        StatPoints -= CreatedMonster.Health.y;
+        StatPoints -= CreatedMonster.PhysicalAttack;
+        StatPoints -= CreatedMonster.PhysicalDefense;
+        StatPoints -= CreatedMonster.MagicalAttack;
+        StatPoints -= CreatedMonster.MagicalDefense;
+        StatPoints -= CreatedMonster.Speed;
+
+        // 
     }
 }

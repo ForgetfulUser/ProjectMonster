@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":7,"MonsterType1":5,"MonsterType2":7,"Element1":3,"Element2":5,"Name":"mEOW","Description":"Ancient Sphinx with idk.. powers","Health":{"x":70,"y":70},"TempHealth":0,"Accuracy":100,"PhysicalAttack":40,"MagicalAttack":40,"PhysicalDefense":40,"MagicalDefense":40,"Speed":40,"IsNewer":true}
