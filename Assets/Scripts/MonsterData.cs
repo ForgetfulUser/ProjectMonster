@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -23,6 +24,8 @@ public class MonsterData
     public int PhysicalDefense;
     public int MagicalDefense;
     public int Speed;
+
+    public List<AbilityData> Abilities = new List<AbilityData>();
 
     public bool IsNewer;
 }

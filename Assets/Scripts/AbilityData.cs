@@ -1,17 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public struct BuffData
+public class BuffData
 {
+    public string ID;
+    public string Name;
+    public Sprite Sprite;
+    public int MaxTurns;
+    public int Turns;
+    public StatType BuffingStat;
     public int StatBuffAmount;
-    public StatTypes BuffingStat;
 
 
 }
 
 public class AbilityData : MonoBehaviour
 {
-    public string Name;
-    public string Description;
+    public string ID;
+    public string Name = "Ability";
+    [TextArea]
+    public string Description = "Description";
     public int Damage;
-    //public List<BuffData> Buffs = new List<BuffData>();
+    public Sprite Sprite;
+    public MonsterType MonsterType;
+    public ElementType Element;
+    public List<BuffData> OwnerBuffs = new List<BuffData>();
+    public List<BuffData> EnemyBuffs = new List<BuffData>();
 }

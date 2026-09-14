@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MonsterMakerManager : MonoBehaviour
@@ -60,29 +58,29 @@ public class MonsterMakerManager : MonoBehaviour
         CreatedMonster.Description = desc;
     }
 
-    public void ChangeStatAmount(Single amount, StatTypes statTypes, out int changeAmount)
+    public void ChangeStatAmount(Single amount, StatType statTypes, out int changeAmount)
     {
         changeAmount = 0;
 
         // Generate pointChangeAmount by StatType
         switch (statTypes)
         {
-            case StatTypes.Health:
+            case StatType.Health:
                 changeAmount = (int)amount - CreatedMonster.Health.y;
                 break;
-            case StatTypes.PhysicalAttack:
+            case StatType.PhysicalAttack:
                 changeAmount = (int)amount - CreatedMonster.PhysicalAttack;
                 break;
-            case StatTypes.PhysicalDefense:
+            case StatType.PhysicalDefense:
                 changeAmount = (int)amount - CreatedMonster.PhysicalDefense;
                 break;
-            case StatTypes.MagicalAttack:
+            case StatType.MagicalAttack:
                 changeAmount = (int)amount - CreatedMonster.MagicalAttack;
                 break;
-            case StatTypes.MagicalDefense:
+            case StatType.MagicalDefense:
                 changeAmount = (int)amount - CreatedMonster.MagicalDefense;
                 break;
-            case StatTypes.Speed:
+            case StatType.Speed:
                 changeAmount = (int)amount - CreatedMonster.Speed;
                 break;
         }
@@ -102,22 +100,22 @@ public class MonsterMakerManager : MonoBehaviour
         // Change the created monsters stat
         switch (statTypes)
         {
-            case StatTypes.Health:
+            case StatType.Health:
                 CreatedMonster.Health = new Vector2Int((int)amount, (int)amount);
                 break;
-            case StatTypes.PhysicalAttack:
+            case StatType.PhysicalAttack:
                 CreatedMonster.PhysicalAttack = (int)amount;
                 break;
-            case StatTypes.PhysicalDefense:
+            case StatType.PhysicalDefense:
                 CreatedMonster.PhysicalDefense = (int)amount;
                 break;
-            case StatTypes.MagicalAttack:
+            case StatType.MagicalAttack:
                 CreatedMonster.MagicalAttack = (int)amount;
                 break;
-            case StatTypes.MagicalDefense:
+            case StatType.MagicalDefense:
                 CreatedMonster.MagicalDefense = (int)amount;
                 break;
-            case StatTypes.Speed:
+            case StatType.Speed:
                 CreatedMonster.Speed = (int)amount;
                 break;
         }

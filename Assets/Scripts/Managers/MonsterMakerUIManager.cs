@@ -19,8 +19,8 @@ public class MonsterMakerUIManager : MonoBehaviour
     [Header("Stat Sliders")]
     public List<Slider> StatTypes_SLDRs = new List<Slider>();
 
-    private Dictionary<StatTypes, TMP_Text> m_StatTypes_TXTs = new Dictionary<StatTypes, TMP_Text>();
-    private Dictionary<StatTypes, Slider> m_StatTypes_SLDRs = new Dictionary<StatTypes, Slider>();
+    private Dictionary<StatType, TMP_Text> m_StatTypes_TXTs = new Dictionary<StatType, TMP_Text>();
+    private Dictionary<StatType, Slider> m_StatTypes_SLDRs = new Dictionary<StatType, Slider>();
 
     [Header("Dropdowns")]
     public TMP_Dropdown MonsterRarity_DRPDN;
@@ -32,21 +32,21 @@ public class MonsterMakerUIManager : MonoBehaviour
     public TMP_InputField Description_IF;
 
     public List<string> stat_STRs = new List<string>();
-    private Dictionary<StatTypes, string> m_stat_STRs = new Dictionary<StatTypes, string>();
+    private Dictionary<StatType, string> m_stat_STRs = new Dictionary<StatType, string>();
 
     private void Start()
     {
-        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        for(int i = 0; i< (int)StatType.MAX_STAT_TYPE; i++)
         {
-            m_StatTypes_TXTs.Add((StatTypes)i, StatTypes_TXTs[i]);
+            m_StatTypes_TXTs.Add((StatType)i, StatTypes_TXTs[i]);
         }
-        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        for(int i = 0; i< (int)StatType.MAX_STAT_TYPE; i++)
         {
-            m_StatTypes_SLDRs.Add((StatTypes)i, StatTypes_SLDRs[i]);
+            m_StatTypes_SLDRs.Add((StatType)i, StatTypes_SLDRs[i]);
         }
-        for(int i = 0; i< (int)StatTypes.MAX_STAT_TYPE; i++)
+        for(int i = 0; i< (int)StatType.MAX_STAT_TYPE; i++)
         {
-            m_stat_STRs.Add((StatTypes)i, stat_STRs[i]);
+            m_stat_STRs.Add((StatType)i, stat_STRs[i]);
         }
     }
 
@@ -66,28 +66,28 @@ public class MonsterMakerUIManager : MonoBehaviour
         MonsterElement2_DRPDN.value = (int)monster.Element2;
 
         // Set Stat Slider Values & Text
-        for(int i = 0; i < (int)StatTypes.MAX_STAT_TYPE; i++)
+        for(int i = 0; i < (int)StatType.MAX_STAT_TYPE; i++)
         {
-            StatTypes statType = (StatTypes)i;
+            StatType statType = (StatType)i;
 
             switch(statType)
             {
-                case StatTypes.Health:
+                case StatType.Health:
                     m_StatTypes_SLDRs[statType].value = monster.Health.y;
                     break;
-                case StatTypes.PhysicalAttack:
+                case StatType.PhysicalAttack:
                     m_StatTypes_SLDRs[statType].value = monster.PhysicalAttack;
                     break;
-                case StatTypes.PhysicalDefense:
+                case StatType.PhysicalDefense:
                     m_StatTypes_SLDRs[statType].value = monster.PhysicalDefense;
                     break;
-                case StatTypes.MagicalAttack:
+                case StatType.MagicalAttack:
                     m_StatTypes_SLDRs[statType].value = monster.MagicalAttack;
                     break;
-                case StatTypes.MagicalDefense:
+                case StatType.MagicalDefense:
                     m_StatTypes_SLDRs[statType].value = monster.MagicalDefense;
                     break;
-                case StatTypes.Speed:
+                case StatType.Speed:
                     m_StatTypes_SLDRs[statType].value = monster.Speed;
                     break;
             }
@@ -103,17 +103,17 @@ public class MonsterMakerUIManager : MonoBehaviour
 
     public void SetBaseStats()
     {
-        for(int i = 0; i < (int)StatTypes.MAX_STAT_TYPE; i++)
+        for(int i = 0; i < (int)StatType.MAX_STAT_TYPE; i++)
         {
             if (i == 0)
             {
-                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + MonsterMakerManager.BASE_HEALTH;
-                m_StatTypes_SLDRs[(StatTypes)i].value = MonsterMakerManager.BASE_HEALTH;
+                m_StatTypes_TXTs[(StatType)i].text = m_stat_STRs[(StatType)i] + MonsterMakerManager.BASE_HEALTH;
+                m_StatTypes_SLDRs[(StatType)i].value = MonsterMakerManager.BASE_HEALTH;
             }
             else
             {
-                m_StatTypes_SLDRs[(StatTypes)i].value = MonsterMakerManager.BASE_STATS;
-                m_StatTypes_TXTs[(StatTypes)i].text = m_stat_STRs[(StatTypes)i] + MonsterMakerManager.BASE_STATS;
+                m_StatTypes_SLDRs[(StatType)i].value = MonsterMakerManager.BASE_STATS;
+                m_StatTypes_TXTs[(StatType)i].text = m_stat_STRs[(StatType)i] + MonsterMakerManager.BASE_STATS;
             }
         }
 
@@ -122,7 +122,7 @@ public class MonsterMakerUIManager : MonoBehaviour
 
     public void UpdateStat(int statTypeI)
     {
-        StatTypes statType = (StatTypes)statTypeI;
+        StatType statType = (StatType)statTypeI;
         int newAmount = (int)m_StatTypes_SLDRs[statType].value;
 
         MonsterMakerManager.ChangeStatAmount(newAmount, statType, out int changeAmount);
