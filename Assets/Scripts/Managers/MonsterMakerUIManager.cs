@@ -48,6 +48,8 @@ public class MonsterMakerUIManager : MonoBehaviour
         {
             m_stat_STRs.Add((StatType)i, stat_STRs[i]);
         }
+
+        SetBaseStats();
     }
 
     public void UpdateWithMonster(MonsterData monster)

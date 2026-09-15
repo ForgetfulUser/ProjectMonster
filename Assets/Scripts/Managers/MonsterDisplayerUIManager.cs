@@ -77,7 +77,7 @@ public class MonsterDisplayerUIManager : MonoBehaviour
     public void EditMonster()
     {
         MonsterMakerManager.EditMonster(SelectedMonster);
-
+        // MonsterLoader.DeleteMonster(SelectedMonster.Name);
         BackToMakeMonters();
     }
 

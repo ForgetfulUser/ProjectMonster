@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":7,"MonsterType1":6,"MonsterType2":0,"Element1":6,"Element2":0,"Name":"Hello Darkness","Description":"My old friend","Health":{"x":49,"y":49},"TempHealth":0,"Accuracy":100,"PhysicalAttack":40,"MagicalAttack":40,"PhysicalDefense":23,"MagicalDefense":20,"Speed":40,"IsNewer":true}
