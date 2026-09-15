@@ -63,6 +63,12 @@ public class MonsterLoader : MonoBehaviour
         return LoadMonsterByPath(monsterFilePath);
     }
 
+    public static void DeleteMonster(string name)
+    {
+        string path = MonsterDataPath + name + ".txt";
+        File.Delete(path);
+    }
+
     public static MonsterData LoadMonsterByPath(string path)
     {
         MonsterData monster;

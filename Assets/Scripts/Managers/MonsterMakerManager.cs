@@ -18,6 +18,7 @@ public class MonsterMakerManager : MonoBehaviour
 
     public List<int> StatPoints_LST = new List<int>();
     public Dictionary<MonsterRarity, int> StatPoints_DIC = new Dictionary<MonsterRarity, int>();
+    public string OldName;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class MonsterMakerManager : MonoBehaviour
         if (CreatedMonster.MonsterRarity == MonsterRarity.None) CreatedMonster.MonsterRarity = MonsterRarity.Ancient;
         AdjustStatPoints();
         MonsterMakerUIManager.UpdateWithMonster(CreatedMonster);
+        OldName = monster.Name;
     }
 
     public void TakeName(string _name)
@@ -157,6 +159,11 @@ public class MonsterMakerManager : MonoBehaviour
             Debug.Log("Rename Monster");
             return;
         }
+        else if (OldName != "")
+        {
+            MonsterLoader.DeleteMonster(OldName);
+        }
+        OldName = "";
 
         MonsterLoader.SaveMonster(CreatedMonster);
         SceneManager.LoadScene("Monster Maker Scene");
