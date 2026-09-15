@@ -30,7 +30,7 @@ public class BuffMakerManager : MonoBehaviour
         }
         else if(OldName != "")
             BuffLoader.DeleteBuff(OldName);
-            BuffLoader.SaveBuff(CreatedBuff);
+        BuffLoader.SaveBuff(CreatedBuff);
         SceneManager.LoadScene("Monster Maker Scene");
     }
 
@@ -85,6 +85,7 @@ public class BuffMakerManager : MonoBehaviour
     public void EditBuff()
     {
         CreatedBuff = BuffDisplayerManager.Instance.SelectedBuff;
+        OldName = CreatedBuff.Name;
         BuffMakerUIManager.UpdateBuffUI();
         BuffDisplayerUIManager.Instance.SwapScreens();
     }

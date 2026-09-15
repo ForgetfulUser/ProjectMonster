@@ -1,1 +1,0 @@
-{"ID":"","Name":"Marksman","Description":"Makes a monster have marksman like accuracy and damage","Sprite":{"instanceID":0},"MaxTurns":2,"Turns":0,"AffectingStat":2,"AffectingStatAmount":30,"Condition":0}

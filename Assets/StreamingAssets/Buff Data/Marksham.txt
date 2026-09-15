@@ -1,0 +1,1 @@
+{"ID":"","Name":"Marksham","Description":"The skills of a marksham","Sprite":{"instanceID":0},"MaxTurns":2,"Turns":0,"AffectingStat":2,"AffectingStatAmount":30,"Condition":0}

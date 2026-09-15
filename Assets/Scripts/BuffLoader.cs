@@ -20,6 +20,12 @@ public class BuffLoader : MonoBehaviour
         File.WriteAllText(filePath, json);
     }
 
+    public static void DeleteBuff(string name)
+    {
+        string path = BuffDataPath + name + ".txt";
+        File.Delete(path);
+    }
+
     public static BuffData LoadBuffByName(string name)
     {
         string buffFilePath = BuffDataPath + name + ".txt"; // Generate path for monster data

@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 71093359}
   - component: {fileID: 71093360}
   m_Layer: 5
-  m_Name: Affecting Stat
+  m_Name: Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2691,9 +2691,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1072454550}
-        m_TargetAssemblyTypeName: MonsterDisplayerUIManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1072454552}
+        m_TargetAssemblyTypeName: BuffMakerManager, Assembly-CSharp
+        m_MethodName: EditBuff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12937,7 +12937,7 @@ GameObject:
   - component: {fileID: 604222098}
   - component: {fileID: 604222099}
   m_Layer: 5
-  m_Name: Health Slider
+  m_Name: Stat Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13009,7 +13009,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1968775004}
   m_HandleRect: {fileID: 327919303}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -30
   m_MaxValue: 30
   m_WholeNumbers: 1
   m_Value: 0
@@ -19456,7 +19456,7 @@ GameObject:
   - component: {fileID: 893797917}
   - component: {fileID: 893797916}
   m_Layer: 5
-  m_Name: Affect Stat Dropdown
+  m_Name: Condition Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21608,8 +21608,11 @@ MonoBehaviour:
   Name_IF: {fileID: 562941167}
   AffectingStat_DRPDN: {fileID: 1275539156}
   AffectingStat_TXT: {fileID: 42015513}
+  AffectingStat_SLDR: {fileID: 604222099}
+  Condition_DRPDN: {fileID: 893797916}
   Turns_TXT: {fileID: 694395783}
   Turns_SLDR: {fileID: 559466822}
+  Desction_IF: {fileID: 1521024183}
 --- !u!1 &998825328
 GameObject:
   m_ObjectHideFlags: 0
@@ -23226,6 +23229,7 @@ MonoBehaviour:
   BuffDisplayerManager: {fileID: 920760742}
   MakerPanel: {fileID: 430608602}
   BuffMakerUIManager: {fileID: 997237270}
+  OldName: 
 --- !u!1 &1080486181
 GameObject:
   m_ObjectHideFlags: 0
@@ -44606,6 +44610,7 @@ MonoBehaviour:
     IsNewer: 0
   StatPoints: 50
   StatPoints_LST: e703000032000000460000005a0000007800000096000000be000000e6000000
+  OldName: 
 --- !u!4 &2109749621
 Transform:
   m_ObjectHideFlags: 0
