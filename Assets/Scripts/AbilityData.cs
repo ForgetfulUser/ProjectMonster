@@ -4,17 +4,18 @@ using System.Collections.Generic;
 public class BuffData
 {
     public string ID;
-    public string Name;
+    public string Name = "Buff";
+    public string Description;
     public Sprite Sprite;
     public int MaxTurns;
     public int Turns;
-    public StatType BuffingStat;
-    public int StatBuffAmount;
-
+    public StatType AffectingStat = StatType.MAX_STAT_TYPE;
+    public int AffectingStatAmount;
+    public ConditionType Condition = ConditionType.MAX_CONDITION_TYPE;
 
 }
 
-public class AbilityData : MonoBehaviour
+public class AbilityData
 {
     public string ID;
     public string Name = "Ability";

@@ -22,7 +22,7 @@ public enum ConditionType
     Burn,
     Poisoned,
     Frozen,
-    MAX_STAT_TYPE
+    MAX_CONDITION_TYPE
 }
 
 [SerializeField][Serializable]

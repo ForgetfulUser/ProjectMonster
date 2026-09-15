@@ -1,0 +1,1 @@
+{"ID":"","Name":"Ad","Description":"adfs adsf fd","Sprite":{"instanceID":0},"MaxTurns":2,"Turns":0,"BuffingStat":1,"StatBuffAmount":13,"Condition":0}
