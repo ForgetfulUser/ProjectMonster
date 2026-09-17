@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":4,"MonsterType1":5,"MonsterType2":2,"Element1":2,"Element2":3,"Name":"Lasdjkgvb","Description":"aoldjbgvuc","Health":{"x":40,"y":40},"TempHealth":0,"Accuracy":100,"PhysicalAttack":25,"MagicalAttack":25,"PhysicalDefense":20,"MagicalDefense":25,"Speed":25,"IsNewer":true}
