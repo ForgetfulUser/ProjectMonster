@@ -1,0 +1,1 @@
+{"ID":"","Name":"Weakening Burn","Description":"Drain the targets attack and apply a burn to it.","Sprite":{"instanceID":0},"MaxTurns":3,"Turns":0,"AffectingStat":6,"AffectingStatAmount":-12,"Condition":2}
