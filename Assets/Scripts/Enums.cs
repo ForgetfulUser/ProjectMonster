@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [SerializeField][Serializable]
-public enum StatTypes
+public enum StatType
 {
     Health,
     PhysicalAttack,
@@ -12,6 +12,17 @@ public enum StatTypes
     MagicalDefense,
     Speed,
     MAX_STAT_TYPE
+}
+
+[SerializeField][Serializable]
+public enum ConditionType
+{
+    Sleep,
+    Paralysis,
+    Burn,
+    Poisoned,
+    Frozen,
+    MAX_CONDITION_TYPE
 }
 
 [SerializeField][Serializable]
@@ -52,3 +63,5 @@ public enum ElementType
     Light,
     Dark
 }
+
+

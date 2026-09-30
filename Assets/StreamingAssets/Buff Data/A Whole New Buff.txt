@@ -1,0 +1,1 @@
+{"ID":"","Name":"A Whole New Buff","Description":"It's a whole new buff","Sprite":{"instanceID":0},"MaxTurns":5,"Turns":0,"AffectingStat":1,"AffectingStatAmount":18,"Condition":5}

@@ -1,0 +1,1 @@
+{"ID":"","Name":"Might","Description":"Might be make you mighty","Sprite":{"instanceID":0},"MaxTurns":1,"Turns":0,"AffectingStat":0,"AffectingStatAmount":10,"Condition":5}
