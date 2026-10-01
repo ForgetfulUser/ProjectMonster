@@ -22,6 +22,7 @@ public class AbilityData
     [TextArea]
     public string Description = "Description";
     public int Damage;
+    public bool TargetSelf;
     public Sprite Sprite;
     public MonsterType MonsterType;
     public ElementType Element;

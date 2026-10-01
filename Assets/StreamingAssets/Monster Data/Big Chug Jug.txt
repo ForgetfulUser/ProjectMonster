@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":5,"MonsterType1":2,"MonsterType2":3,"Element1":2,"Element2":1,"Name":"Big Chug Jug","Description":"Big strong fih","Health":{"x":70,"y":70},"TempHealth":0,"Accuracy":100,"PhysicalAttack":40,"MagicalAttack":24,"PhysicalDefense":31,"MagicalDefense":20,"Speed":5,"IsNewer":true}
