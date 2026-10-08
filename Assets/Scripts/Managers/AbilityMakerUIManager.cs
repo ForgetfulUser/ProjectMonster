@@ -13,13 +13,13 @@ public class AbilityMakerUIManager : MonoBehaviour
         foreach(BuffData data in selfTarget)
         {
             BuffHolder holder = Instantiate(BuffHolder_PRFB, SelfTargetContent_GO.transform);
-            holder.InitiateHolder(data, true);
+            holder.InitiateHolder(data, BuffHolder.HolderType.AddBuffPanel);
         }
 
         foreach(BuffData data in nonSelfTarget)
         {
             BuffHolder holder = Instantiate(BuffHolder_PRFB, NonSelfTargetContent_GO.transform);
-            holder.InitiateHolder(data, true);
+            holder.InitiateHolder(data, BuffHolder.HolderType.AddBuffPanel);
         }
     }
 }

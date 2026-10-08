@@ -4,25 +4,46 @@ using UnityEngine.UI;
 
 public class BuffHolder : MonoBehaviour
 {
+    public enum HolderType
+    {
+        AbilityMakerPanel,
+        BuffMakerPanel,
+        AddBuffPanel,
+        RemovingBuffPanel
+    }
+
     public BuffData Buff;
     public TMP_Text Text;
-
-    public void InitiateHolder(BuffData buff, bool isForAbility)
+    public HolderType holderType;
+    public void InitiateHolder(BuffData buff, HolderType holderType)
     {
         Buff = buff;
         Text.text = Buff.Name;
-        if(!isForAbility)
-            GetComponent<Button>().onClick.AddListener(SelectBuff);
-        else
-            GetComponent<Button>().onClick.AddListener(SelectAbilityBuff);
+        this.holderType = holderType;
+
+        switch (holderType)
+        {
+            case HolderType.AbilityMakerPanel:
+                GetComponent<Button>().onClick.AddListener(SelectAbilityPanelBuff);
+                break;
+            case HolderType.BuffMakerPanel:
+                GetComponent<Button>().onClick.AddListener(SelectBuffMakerPanelBuff);
+                break;
+            case HolderType.AddBuffPanel:
+                GetComponent<Button>().onClick.AddListener(SelectAddBuffPanelBuff);
+                break;
+            case HolderType.RemovingBuffPanel:
+                GetComponent<Button>().onClick.AddListener(SelectRemoveBuffPanelBuff);
+                break;
+        }
     }
 
-    public void SelectBuff()
+    public void SelectAbilityPanelBuff()
     {
         BuffDisplayerManager.Instance.SelectBuff(Buff);
     }
 
-    public void SelectAbilityBuff()
+    public void SelectBuffMakerPanelBuff()
     {
         if (Buff.DoesTargetSelf)
         {
@@ -32,7 +53,15 @@ public class BuffHolder : MonoBehaviour
         {
             AbilityMakerManager.Instance.SelectNonSelfTargetBuff(Buff);
         }
+    }
 
-        GetComponent<Button>().Select();
+    public void SelectAddBuffPanelBuff()
+    {
+
+    }
+
+    public void SelectRemoveBuffPanelBuff()
+    {
+
     }
 }
