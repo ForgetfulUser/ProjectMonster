@@ -76,6 +76,11 @@ public class BuffMakerManager : MonoBehaviour
         BuffMakerUIManager.UpdateBuffUI();
     }
 
+    public void UpdateDoesTargetSelf(bool doesTargetSelf)
+    {
+        CreatedBuff.DoesTargetSelf = doesTargetSelf;
+    }
+
     public void OpenCreatedBuffs()
     {
         MakerPanel.SetActive(false);

@@ -1,16 +1,44 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityMakerManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static AbilityMakerManager Instance;
+    //public AbilityDisplayerManager AbilityfDisplayerManager;
+    public GameObject MakerPanel;
+    //public BuffDisplayerUIManager BuffDisplayerUIManager;
+    public AbilityMakerUIManager AbilityMakerUIManager;
+    public AbilityData CreatedAbility;
+    public string OldName;
+    public const int BASE_STATS = 5;
+    public BuffData SelectedBuff;
+
+    private void Awake()
     {
-        
+        Instance = this;
+        CreatedAbility = new AbilityData();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        LoadBuffs();
+    }
+
+    public void LoadBuffs()
+    {
+        List<BuffData> selfTargetBuffs = BuffLoader.LoadAllSelfBuffDatas(BuffLoader.BuffDataPath);
+        List<BuffData> nonSelfTargetBuffs = BuffLoader.LoadAllNonSelfBuffDatas(BuffLoader.BuffDataPath);
+
+        AbilityMakerUIManager.DisplayBuffs(selfTargetBuffs, nonSelfTargetBuffs);
+    }
+
+    public void SelectSelfTargetBuff(BuffData buffData)
+    {
+        SelectedBuff = buffData;
+    }
+
+    public void SelectNonSelfTargetBuff(BuffData buffData)
+    {
+        SelectedBuff = buffData;
     }
 }

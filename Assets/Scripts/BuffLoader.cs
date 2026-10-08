@@ -91,4 +91,84 @@ public class BuffLoader : MonoBehaviour
         Debug.Log($"Successfully loaded {allItemsList.Count} JSON files into the list.");
         return allItemsList;
     }
+
+    public static List<BuffData> LoadAllNonSelfBuffDatas(string path)
+    {
+        // The master list that collects all individual JSON file items
+        List<BuffData> allItemsList = new List<BuffData>();
+
+        // Ensure the directory actually exists before trying to read it
+        if (!Directory.Exists(path))
+        {
+            Debug.LogError($"Directory not found at: {path}");
+            return null;
+        }
+
+        // Get all files matching the .json extension inside the folder
+        string[] filePaths = Directory.GetFiles(path, "*.txt");
+
+        foreach (string filePath in filePaths)
+        {
+            try
+            {
+                // Read the plain text content from the file
+                string jsonText = File.ReadAllText(filePath);
+
+                // Deserialize the text into a single ItemData object
+                BuffData data = LoadBuffByPath(filePath);
+
+                // Add the populated object to your main tracking list if it self targets
+                if (data != null && data.DoesTargetSelf == false)
+                {
+                    allItemsList.Add(data);
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Failed to parse file at {filePath}. Error: {e.Message}");
+            }
+        }
+        Debug.Log($"Successfully loaded {allItemsList.Count} JSON files into the list.");
+        return allItemsList;
+    }
+
+    public static List<BuffData> LoadAllSelfBuffDatas(string path)
+    {
+        // The master list that collects all individual JSON file items
+        List<BuffData> allItemsList = new List<BuffData>();
+
+        // Ensure the directory actually exists before trying to read it
+        if (!Directory.Exists(path))
+        {
+            Debug.LogError($"Directory not found at: {path}");
+            return null;
+        }
+
+        // Get all files matching the .json extension inside the folder
+        string[] filePaths = Directory.GetFiles(path, "*.txt");
+
+        foreach (string filePath in filePaths)
+        {
+            try
+            {
+                // Read the plain text content from the file
+                string jsonText = File.ReadAllText(filePath);
+
+                // Deserialize the text into a single ItemData object
+                BuffData data = LoadBuffByPath(filePath);
+
+                // Add the populated object to your main tracking list if it self targets
+                if (data != null && data.DoesTargetSelf)
+                {
+                    allItemsList.Add(data);
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Failed to parse file at {filePath}. Error: {e.Message}");
+            }
+        }
+        Debug.Log($"Successfully loaded {allItemsList.Count} JSON files into the list.");
+        return allItemsList;
+    }
 }

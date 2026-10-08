@@ -9,6 +9,7 @@ public class BuffData
     public Sprite Sprite;
     public int MaxTurns;
     public int Turns;
+    public bool DoesTargetSelf;
     public StatType AffectingStat = StatType.MAX_STAT_TYPE;
     public int AffectingStatAmount;
     public ConditionType Condition = ConditionType.MAX_CONDITION_TYPE;

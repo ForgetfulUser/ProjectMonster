@@ -10,6 +10,7 @@ public class BuffMakerUIManager : MonoBehaviour
     public TMP_Text AffectingStat_TXT;
     public Slider AffectingStat_SLDR;
     public TMP_Dropdown Condition_DRPDN;
+    public Toggle DoesTargeSelf_TGL;
     public TMP_Text Turns_TXT;
     public Slider Turns_SLDR;
     public TMP_InputField Desction_IF;
@@ -42,6 +43,8 @@ public class BuffMakerUIManager : MonoBehaviour
         if (createdData.Condition == ConditionType.MAX_CONDITION_TYPE)
             Condition_DRPDN.value = 0;
         else Condition_DRPDN.value = (int)createdData.Condition + 1;
+
+        DoesTargeSelf_TGL.isOn = createdData.DoesTargetSelf;
 
         Desction_IF.text = createdData.Description;
     }

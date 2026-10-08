@@ -28,7 +28,7 @@ public class BuffDisplayerManager : MonoBehaviour
         foreach (BuffData buff in buffs)
         {
             BuffHolder holder = Instantiate(BuffHolder_PRFB, Content);
-            holder.InitiateHolder(buff);
+            holder.InitiateHolder(buff, false);
             Holders.Add(holder);
         }
 
