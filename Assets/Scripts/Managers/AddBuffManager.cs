@@ -31,7 +31,7 @@ public class AddBuffManager : MonoBehaviour
             buffHolder.InitiateHolder(buff, BuffHolder.HolderType.AddBuffPanel);
             BuffHolders.Add(buffHolder);
         }
-        SelectedBuffs = AbilityMakerManager.Instance.CreatedAbility.Buffs;
+
         UpdateBuffHolders();
         DisplayBuff(null);
         BuffsToAddPanel_GO.SetActive(true);
@@ -78,10 +78,7 @@ public class AddBuffManager : MonoBehaviour
     {
         foreach (BuffHolder holder in BuffHolders)
         {
-            if (IsBuffAdded(holder.Buff))
-            {
-                holder.Check_GO.SetActive(SelectedBuffs.Contains(DisplayingBuff));
-            }
+            holder.Check_GO.SetActive(IsBuffAdded(holder.Buff));
         }
     }
 

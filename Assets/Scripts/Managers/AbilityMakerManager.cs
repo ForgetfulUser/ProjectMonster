@@ -22,10 +22,6 @@ public class AbilityMakerManager : MonoBehaviour
 
     public void UpdateBuffs(List<BuffData> buffs) 
     {
-        foreach (BuffData buff in buffs)
-        {
-            Debug.Log(buff.Name);
-        }
         CreatedAbility.Buffs = buffs;
         AbilityMakerUIManager.DisplayBuffs();
     }
