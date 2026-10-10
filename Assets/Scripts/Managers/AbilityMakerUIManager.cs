@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class AbilityMakerUIManager : MonoBehaviour
 {
-    public GameObject SelfTargetContent_GO;
-    public GameObject NonSelfTargetContent_GO;
+    public GameObject AttachtedBuffsContent_GO;
     public BuffHolder BuffHolder_PRFB;
-    
-    public void DisplayBuffs(List<BuffData> selfTarget, List<BuffData> nonSelfTarget)
-    {
-        foreach(BuffData data in selfTarget)
-        {
-            BuffHolder holder = Instantiate(BuffHolder_PRFB, SelfTargetContent_GO.transform);
-            holder.InitiateHolder(data, BuffHolder.HolderType.AddBuffPanel);
-        }
+    public List<BuffHolder> BuffHolders = new List<BuffHolder>();
 
-        foreach(BuffData data in nonSelfTarget)
+    public void DisplayBuffs()
+    {
+        foreach(BuffHolder holder in BuffHolders)
         {
-            BuffHolder holder = Instantiate(BuffHolder_PRFB, NonSelfTargetContent_GO.transform);
+            Destroy(holder.gameObject);
+        }
+        BuffHolders.Clear();
+
+        List<BuffData> buffs = AbilityMakerManager.Instance.CreatedAbility.Buffs;
+        foreach(BuffData data in buffs)
+        {
+            BuffHolder holder = Instantiate(BuffHolder_PRFB, AttachtedBuffsContent_GO.transform);
             holder.InitiateHolder(data, BuffHolder.HolderType.AddBuffPanel);
+            BuffHolders.Add(holder);
         }
     }
 }

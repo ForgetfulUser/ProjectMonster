@@ -8,7 +8,7 @@ public class BuffData
     public string Description;
     public Sprite Sprite;
     public int MaxTurns;
-    public int Turns;
+    public int TurnsTaken;
     public bool DoesTargetSelf;
     public StatType AffectingStat = StatType.MAX_STAT_TYPE;
     public int AffectingStatAmount;
@@ -27,6 +27,5 @@ public class AbilityData
     public Sprite Sprite;
     public MonsterType MonsterType;
     public ElementType Element;
-    public List<BuffData> OwnerBuffs = new List<BuffData>();
-    public List<BuffData> EnemyBuffs = new List<BuffData>();
+    public List<BuffData> Buffs = new List<BuffData>();
 }

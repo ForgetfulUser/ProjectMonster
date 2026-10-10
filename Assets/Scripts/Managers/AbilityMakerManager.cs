@@ -6,8 +6,9 @@ public class AbilityMakerManager : MonoBehaviour
     public static AbilityMakerManager Instance;
     //public AbilityDisplayerManager AbilityfDisplayerManager;
     public GameObject MakerPanel;
-    //public BuffDisplayerUIManager BuffDisplayerUIManager;
+    public GameObject AddBuffPanel_GO;
     public AbilityMakerUIManager AbilityMakerUIManager;
+    public AddBuffManager AddBuffManager;
     public AbilityData CreatedAbility;
     public string OldName;
     public const int BASE_STATS = 5;
@@ -19,17 +20,22 @@ public class AbilityMakerManager : MonoBehaviour
         CreatedAbility = new AbilityData();
     }
 
-    private void Start()
+    public void UpdateBuffs(List<BuffData> buffs) 
     {
-        LoadBuffs();
+        foreach (BuffData buff in buffs)
+        {
+            Debug.Log(buff.Name);
+        }
+        CreatedAbility.Buffs = buffs;
+        AbilityMakerUIManager.DisplayBuffs();
     }
 
-    public void LoadBuffs()
+    public void DisplayAddBuffs()
     {
-        List<BuffData> selfTargetBuffs = BuffLoader.LoadAllSelfBuffDatas(BuffLoader.BuffDataPath);
-        List<BuffData> nonSelfTargetBuffs = BuffLoader.LoadAllNonSelfBuffDatas(BuffLoader.BuffDataPath);
 
-        AbilityMakerUIManager.DisplayBuffs(selfTargetBuffs, nonSelfTargetBuffs);
+        List<BuffData> buffs = BuffLoader.LoadAllBuffDatas(BuffLoader.BuffDataPath);
+        AddBuffManager.DisplayBuffs(buffs);
+        //AbilityMakerUIManager.DisplayBuffs(selfTargetBuffs);
     }
 
     public void SelectSelfTargetBuff(BuffData buffData)

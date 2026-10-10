@@ -15,6 +15,8 @@ public class BuffHolder : MonoBehaviour
     public BuffData Buff;
     public TMP_Text Text;
     public HolderType holderType;
+    public GameObject Check_GO;
+
     public void InitiateHolder(BuffData buff, HolderType holderType)
     {
         Buff = buff;
@@ -57,7 +59,7 @@ public class BuffHolder : MonoBehaviour
 
     public void SelectAddBuffPanelBuff()
     {
-
+        AddBuffManager.Instance.DisplayBuff(Buff);
     }
 
     public void SelectRemoveBuffPanelBuff()

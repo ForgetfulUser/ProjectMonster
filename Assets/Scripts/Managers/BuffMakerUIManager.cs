@@ -17,7 +17,6 @@ public class BuffMakerUIManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(name);
         BuffMakerManager = BuffMakerManager.Instance;
         UpdateBuffUI();
     }
