@@ -71,7 +71,7 @@ public class AddBuffManager : MonoBehaviour
                 break;
             }
         }
-        SelectedBuffs.Remove(DisplayingBuff);
+        SelectedBuffs.Remove(buffToRemove);
     }
 
     public void UpdateBuffHolders()
