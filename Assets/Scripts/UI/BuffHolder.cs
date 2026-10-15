@@ -9,7 +9,7 @@ public class BuffHolder : MonoBehaviour
         AbilityMakerPanel,
         BuffMakerPanel,
         AddBuffPanel,
-        RemovingBuffPanel
+        AbilityDisplayerPanel
     }
 
     public BuffData Buff;
@@ -26,7 +26,10 @@ public class BuffHolder : MonoBehaviour
         switch (holderType)
         {
             case HolderType.AbilityMakerPanel:
-                GetComponent<Button>().onClick.AddListener(SelectAbilityPanelBuff);
+                GetComponent<Button>().onClick.AddListener(SelectAbilityMakerPanelBuff);
+                break;
+            case HolderType.AbilityDisplayerPanel:
+                GetComponent<Button>().onClick.AddListener(SelectAbilityDisplayerPanelBuff);
                 break;
             case HolderType.BuffMakerPanel:
                 GetComponent<Button>().onClick.AddListener(SelectBuffMakerPanelBuff);
@@ -34,36 +37,26 @@ public class BuffHolder : MonoBehaviour
             case HolderType.AddBuffPanel:
                 GetComponent<Button>().onClick.AddListener(SelectAddBuffPanelBuff);
                 break;
-            case HolderType.RemovingBuffPanel:
-                GetComponent<Button>().onClick.AddListener(SelectRemoveBuffPanelBuff);
-                break;
         }
     }
 
-    public void SelectAbilityPanelBuff()
+    public void SelectAbilityMakerPanelBuff()
     {
-        BuffDisplayerManager.Instance.SelectBuff(Buff);
+        AbilityMakerManager.Instance.SelectBuff(Buff);
+    }
+
+    public void SelectAbilityDisplayerPanelBuff()
+    {
+        AbilityDisplayerManager.Instance.SelectBuff(Buff);
     }
 
     public void SelectBuffMakerPanelBuff()
     {
-        if (Buff.DoesTargetSelf)
-        {
-            AbilityMakerManager.Instance.SelectSelfTargetBuff(Buff);
-        }
-        else
-        {
-            AbilityMakerManager.Instance.SelectNonSelfTargetBuff(Buff);
-        }
+        BuffDisplayerManager.Instance.SelectBuff(Buff);
     }
 
     public void SelectAddBuffPanelBuff()
     {
         AddBuffManager.Instance.DisplayBuff(Buff);
-    }
-
-    public void SelectRemoveBuffPanelBuff()
-    {
-
     }
 }

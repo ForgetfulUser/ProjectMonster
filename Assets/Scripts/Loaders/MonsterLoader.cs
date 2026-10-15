@@ -19,11 +19,6 @@ public class MonsterLoader : MonoBehaviour
     public int MagicalDefense;
     public int Speed;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     public void TempSave()
     {
         string filePath = MonsterDataPath + "Monster.txt";

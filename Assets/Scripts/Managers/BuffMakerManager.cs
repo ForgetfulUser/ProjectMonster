@@ -56,7 +56,6 @@ public class BuffMakerManager : MonoBehaviour
     {
         if (stat == 0)
             stat = (int)StatType.MAX_STAT_TYPE;
-        else stat--;
         CreatedBuff.AffectingStat = (StatType)stat;
 
         BuffMakerUIManager.UpdateBuffUI();

@@ -39,6 +39,6 @@ public class BuffDisplayerManager : MonoBehaviour
     public void SelectBuff(BuffData buffData)
     {
         SelectedBuff = buffData;
-        BuffDisplayerUIManager.Instance.SelectMonster();
+        BuffDisplayerUIManager.Instance.SelectBuff();
     }
 }

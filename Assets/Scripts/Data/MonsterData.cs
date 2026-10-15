@@ -5,14 +5,16 @@ using UnityEngine;
 [Serializable]
 public class MonsterData
 {
+    public static string BaseName = "New Monster";
+
     public string MonsterID;
     public Sprite Sprite;
-    public MonsterRarity MonsterRarity;
+    public RarityType MonsterRarity;
     public MonsterType MonsterType1;
     public MonsterType MonsterType2;
     public ElementType Element1;
     public ElementType Element2;
-    public string Name = "Monster";
+    public string Name = BaseName;
     [TextArea]
     public string Description = "Description";
     public Vector2Int Health;

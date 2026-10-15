@@ -15,7 +15,7 @@ public class MonsterMakerManager : MonoBehaviour
     public const int BASE_STATS = 5;
 
     public List<int> StatPoints_LST = new List<int>();
-    public Dictionary<MonsterRarity, int> StatPoints_DIC = new Dictionary<MonsterRarity, int>();
+    public Dictionary<RarityType, int> StatPoints_DIC = new Dictionary<RarityType, int>();
     public string OldName;
 
     private void Start()
@@ -23,9 +23,9 @@ public class MonsterMakerManager : MonoBehaviour
         Screen.SetResolution(1920, 1080, true);
         SetBasicStats();
 
-        for(int i = 0; i <= (int)MonsterRarity.Ancient; i++)
+        for(int i = 0; i <= (int)RarityType.Ancient; i++)
         {
-            StatPoints_DIC.Add((MonsterRarity)i, StatPoints_LST[i]);
+            StatPoints_DIC.Add((RarityType)i, StatPoints_LST[i]);
         }
     }
 
@@ -44,7 +44,7 @@ public class MonsterMakerManager : MonoBehaviour
     public void EditMonster(MonsterData monster)
     {
         CreatedMonster = monster;
-        if (CreatedMonster.MonsterRarity == MonsterRarity.None) CreatedMonster.MonsterRarity = MonsterRarity.Ancient;
+        if (CreatedMonster.MonsterRarity == RarityType.None) CreatedMonster.MonsterRarity = RarityType.Ancient;
         AdjustStatPoints();
         MonsterMakerUIManager.UpdateWithMonster(CreatedMonster);
         OldName = monster.Name;
@@ -123,7 +123,7 @@ public class MonsterMakerManager : MonoBehaviour
         }
     }
 
-    public void SetMonsterRarity(MonsterRarity monsterRarity)
+    public void SetMonsterRarity(RarityType monsterRarity)
     {
         CreatedMonster.MonsterRarity = monsterRarity;
 
@@ -152,7 +152,7 @@ public class MonsterMakerManager : MonoBehaviour
 
     public void SaveMonster()
     {
-        if (CreatedMonster.Name == "Monster")
+        if (CreatedMonster.Name == MonsterData.BaseName)
         {
             Debug.Log("Rename Monster");
             return;

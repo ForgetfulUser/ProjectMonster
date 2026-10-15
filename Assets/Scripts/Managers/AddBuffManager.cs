@@ -84,7 +84,7 @@ public class AddBuffManager : MonoBehaviour
 
     public void Complete()
     {
-        AbilityMakerManager.Instance.UpdateBuffs(SelectedBuffs);
+        AbilityMakerManager.Instance.ChangeBuffs(SelectedBuffs);
         Close();
     }
 

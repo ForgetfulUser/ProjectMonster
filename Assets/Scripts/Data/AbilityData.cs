@@ -1,6 +1,8 @@
-using UnityEngine;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
+[Serializable]
 public class BuffData
 {
     public string ID;
@@ -16,6 +18,7 @@ public class BuffData
 
 }
 
+[Serializable]
 public class AbilityData
 {
     public string ID;
@@ -23,8 +26,9 @@ public class AbilityData
     [TextArea]
     public string Description = "Description";
     public int Damage;
-    public bool TargetSelf;
+    public bool DoesTargetSelf;
     public Sprite Sprite;
+    public RarityType MonsterRarity;
     public MonsterType MonsterType;
     public ElementType Element;
     public List<BuffData> Buffs = new List<BuffData>();

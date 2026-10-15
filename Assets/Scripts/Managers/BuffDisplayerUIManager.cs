@@ -27,7 +27,7 @@ public class BuffDisplayerUIManager : MonoBehaviour
         Maker_GO.SetActive(!Maker_GO.activeSelf);
     }
 
-    public void SelectMonster()
+    public void SelectBuff()
     {
         BuffData buff = BuffDisplayerManager.Instance.SelectedBuff;
         Sprite_IMG.sprite = buff.Sprite;

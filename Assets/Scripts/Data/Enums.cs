@@ -26,7 +26,7 @@ public enum ConditionType
 }
 
 [SerializeField][Serializable]
-public enum MonsterRarity
+public enum RarityType
 {
     None,
     Common,

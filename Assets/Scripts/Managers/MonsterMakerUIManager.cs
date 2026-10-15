@@ -141,7 +141,7 @@ public class MonsterMakerUIManager : MonoBehaviour
     public void UpdateMonsterRarity(Int32 rarity)
     {
         rarity++;
-        MonsterMakerManager.SetMonsterRarity((MonsterRarity)rarity);
+        MonsterMakerManager.SetMonsterRarity((RarityType)rarity);
         UpdateStatPoints();
     }
 

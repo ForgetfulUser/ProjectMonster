@@ -1,0 +1,1 @@
+{"ID":"","Name":"Sin Gab","Description":"A signature Ability","Damage":0,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":7,"MonsterType":7,"Element":2,"Buffs":[]}
