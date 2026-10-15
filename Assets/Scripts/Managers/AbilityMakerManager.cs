@@ -29,6 +29,37 @@ public class AbilityMakerManager : MonoBehaviour
     {
         CreatedAbility = ability;
         OldName = ability.Name;
+        // Adjust Damage/Healing Min and Max values
+        int damageMinMax = 0;
+        switch (CreatedAbility.MonsterRarity)
+        {
+            case RarityType.None:
+                damageMinMax = 3;
+                break;
+            case RarityType.Common:
+                damageMinMax = 5;
+                break;
+            case RarityType.Uncommon:
+                damageMinMax = 12;
+                break;
+            case RarityType.Rare:
+                damageMinMax = 15;
+                break;
+            case RarityType.Epic:
+                damageMinMax = 18;
+                break;
+            case RarityType.Legendary:
+                damageMinMax = 21;
+                break;
+            case RarityType.Mythic:
+                damageMinMax = 25;
+                break;
+            case RarityType.Ancient:
+                damageMinMax = 30;
+                break;
+        }
+        AbilityMakerUIManager.AdjustDamageMinMax(-damageMinMax, damageMinMax, false);
+        Debug.Log(CreatedAbility.Damage);
         AbilityMakerUIManager.UpdateMakerUI();
     }
 
@@ -95,7 +126,7 @@ public class AbilityMakerManager : MonoBehaviour
                 damageMinMax = 30;
                 break;
         }
-        AbilityMakerUIManager.AdjustDamageMinMax(-damageMinMax, damageMinMax);
+        AbilityMakerUIManager.AdjustDamageMinMax(-damageMinMax, damageMinMax, true);
         AbilityMakerUIManager.UpdateMakerUI();
     }
 

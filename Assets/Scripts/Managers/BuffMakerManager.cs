@@ -58,7 +58,7 @@ public class BuffMakerManager : MonoBehaviour
             stat = (int)StatType.MAX_STAT_TYPE;
         CreatedBuff.AffectingStat = (StatType)stat;
 
-        BuffMakerUIManager.UpdateBuffUI();
+        //BuffMakerUIManager.UpdateBuffUI();
     }
 
     public void UpdateAffectingStatAmount(Single amount)
@@ -72,7 +72,7 @@ public class BuffMakerManager : MonoBehaviour
         if (condition == 0) condition = (int)ConditionType.MAX_CONDITION_TYPE;
         else condition--;
         CreatedBuff.Condition = (ConditionType)condition;
-        BuffMakerUIManager.UpdateBuffUI();
+        //BuffMakerUIManager.UpdateBuffUI();
     }
 
     public void UpdateDoesTargetSelf(bool doesTargetSelf)

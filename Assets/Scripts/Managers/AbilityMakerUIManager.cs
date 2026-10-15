@@ -10,7 +10,7 @@ public class AbilityMakerUIManager : MonoBehaviour
     [Header("Text References")]
     public TMP_InputField Name_IF;
     public TMP_Text Damage_TXT;
-    public TMP_Text Description_TXT;
+    public TMP_InputField Description_IF;
 
     [Header("Slider")]
     public Slider Damage_SLDR;
@@ -28,10 +28,10 @@ public class AbilityMakerUIManager : MonoBehaviour
     public BuffHolder BuffHolder_PRFB;
     public List<BuffHolder> BuffHolders = new List<BuffHolder>();
 
-    public void UpdateMakerUI()
+    public void UpdateMakerUI() 
     {
         AbilityData ability = AbilityMakerManager.Instance.CreatedAbility;
-
+        Debug.Log(ability.Damage);
         Name_IF.text = ability.Name;
         string damageText = "Healing/Damage: ";
         if(ability.Damage > 0)
@@ -48,7 +48,8 @@ public class AbilityMakerUIManager : MonoBehaviour
         {
             Damage_TXT.color = Color.black;
         }
-            damageText += Mathf.Abs(ability.Damage);
+
+        damageText += Mathf.Abs(ability.Damage);
         Damage_TXT.text = damageText;
         Damage_SLDR.value = ability.Damage;
 
@@ -56,18 +57,19 @@ public class AbilityMakerUIManager : MonoBehaviour
         MonsterType_DRPDN.value = (int)ability.MonsterType;
         Element_DRPDN.value = (int)ability.Element;
 
-        Description_TXT.text = ability.Description;
+        Description_IF.text = ability.Description;
         
         DoesTargetSelf_TGL.isOn = ability.DoesTargetSelf;
 
         DisplayBuffs();
     }
 
-    public void AdjustDamageMinMax(int min, int max)
+    public void AdjustDamageMinMax(int min, int max, bool changeDamage)
     {
         Damage_SLDR.minValue = min;
         Damage_SLDR.maxValue = max;
-        AbilityMakerManager.Instance.ChangeAbilityDamage(0);
+        if(changeDamage)
+            AbilityMakerManager.Instance.ChangeAbilityDamage(0);
     }
 
     public void DisplayBuffs()

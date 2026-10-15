@@ -1,1 +1,1 @@
-{"ID":"","Name":"Target Self","Description":"Target your self","Sprite":{"instanceID":0},"MaxTurns":5,"TurnsTaken":0,"DoesTargetSelf":true,"AffectingStat":0,"AffectingStatAmount":30,"Condition":5}
+{"ID":"","Name":"Target Self","Description":"Target your self","Sprite":{"instanceID":0},"MaxTurns":5,"TurnsTaken":0,"DoesTargetSelf":true,"AffectingStat":6,"AffectingStatAmount":30,"Condition":3}

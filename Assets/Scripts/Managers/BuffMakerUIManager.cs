@@ -33,7 +33,7 @@ public class BuffMakerUIManager : MonoBehaviour
         if(createdData.AffectingStat == StatType.MAX_STAT_TYPE)
             AffectingStat_DRPDN.value = 0;
         else
-            AffectingStat_DRPDN.value = (int)createdData.AffectingStat + 1;
+            AffectingStat_DRPDN.value = (int)createdData.AffectingStat;
 
 
         Turns_TXT.text = "Turns Amount: " + createdData.MaxTurns;
