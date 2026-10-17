@@ -570,6 +570,7 @@ MonoBehaviour:
   MoveSpeed: 1000
   SprintSpeed: 1200
   rb: {fileID: 382601024}
+  Animator: {fileID: 1358118247}
   sensitivity: 2
 --- !u!4 &382601023
 Transform:
@@ -1213,6 +1214,11 @@ MeshFilter:
 --- !u!4 &1358118246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 880372642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1358118247 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4540229000190281644, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 880372642}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1451916189
