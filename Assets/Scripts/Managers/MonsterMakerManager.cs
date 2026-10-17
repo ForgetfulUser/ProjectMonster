@@ -169,7 +169,7 @@ public class MonsterMakerManager : MonoBehaviour
 
     public void OpenCreatedMonsters()
     {
-        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas(MonsterLoader.MonsterDataPath);
+        List<MonsterData> monsters = MonsterLoader.LoadAllMonsterDatas();
         if (monsters.Count == 0) Debug.Log("NO MONSTER");
         MakerPanel.SetActive(false);
         MonsterDisplayerUIManager.StartDisplayer(monsters);

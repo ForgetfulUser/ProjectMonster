@@ -83,20 +83,20 @@ public class MonsterLoader : MonoBehaviour
         return monster;
     }
 
-    public static List<MonsterData> LoadAllMonsterDatas(string path)
+    public static List<MonsterData> LoadAllMonsterDatas()
     {
         // The master list that collects all individual JSON file items
         List<MonsterData> allItemsList = new List<MonsterData>();
 
         // Ensure the directory actually exists before trying to read it
-        if (!Directory.Exists(path))
+        if (!Directory.Exists(MonsterDataPath))
         {
-            Debug.LogError($"Directory not found at: {path}");
+            Debug.LogError($"Directory not found at: {MonsterDataPath}");
             return null;
         }
 
         // Get all files matching the .json extension inside the folder
-        string[] filePaths = Directory.GetFiles(path, "*.txt");
+        string[] filePaths = Directory.GetFiles(MonsterDataPath, "*.txt");
 
         foreach (string filePath in filePaths)
         {
