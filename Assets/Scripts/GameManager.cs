@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -58,17 +59,17 @@ public class GameManager : MonoBehaviour
             bool speedCheck = false;
 
             // Name Check
-            if (monster.Name != "" && searchParams.Name != monster.Name)
+            if (searchParams.Name != "" && searchParams.Name == monster.Name)
             {
+                Debug.Log("HE");
                 finalMonsterList.Clear();
                 finalMonsterList.Add(monster);
                 break;
             }
-            else if(monster.Name != "")
+            else if(searchParams.Name != "")
             {
                 continue;
             }
-
             // Monster Type Check
             {
                 // Type 1 

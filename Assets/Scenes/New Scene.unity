@@ -279,7 +279,7 @@ MonoBehaviour:
     Name: 
     MonsterType1: 0
     MonsterType2: 0
-    RarityMinMax: {x: 0, y: 0}
+    RarityMinMax: {x: 3, y: 6}
     Element1: 0
     Element2: 0
     HealthMinMax: {x: 0, y: 999}
@@ -1288,7 +1288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player_GO: {fileID: 1510938886}
-  GameAreaList: []
+  GameAreaList:
+  - {fileID: 394986848}
   PlayerController: {fileID: 0}
   PlayerTamer: {fileID: 0}
   LoadedMonsters: []
