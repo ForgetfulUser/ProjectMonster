@@ -7,9 +7,7 @@ public class MonsterTamer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log(Application.dataPath);
-        MonsterLoader.LoadMonsterByName("Arcanine");
-        //MonsterLoader.Instance.TempSave();
+
     }
 
     // Update is called once per frame

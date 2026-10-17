@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw("Vertical");
 
         isSprinting = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && moveDir.y >= 0 && moveDir.x == 0;
-        Debug.Log(isSprinting);
+        
         Vector3 move = transform.forward * moveDir.y + transform.right * moveDir.x;
 
         currentSpeed = isSprinting ? MoveSpeed + SprintSpeed : MoveSpeed;
