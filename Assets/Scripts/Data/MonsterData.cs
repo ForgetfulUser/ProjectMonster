@@ -9,7 +9,7 @@ public class MonsterData
 
     public string MonsterID;
     public Sprite Sprite;
-    public RarityType MonsterRarity;
+    public RarityType MonsterRarity = RarityType.Common;
     public MonsterType MonsterType1;
     public MonsterType MonsterType2;
     public ElementType Element1;

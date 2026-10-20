@@ -4,17 +4,12 @@ using UnityEngine;
 public class MonsterTamer : MonoBehaviour
 {
     public List<MonsterData> Monsters = new List<MonsterData>();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    public void ReceiveMonster(MonsterData monster)
     {
-        Debug.Log(Application.dataPath);
-        MonsterLoader.LoadMonsterByName("Arcanine");
-        //MonsterLoader.Instance.TempSave();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Monsters.Count + 1 <= 6)
+        {
+            Monsters.Add(monster);
+        }
     }
 }
