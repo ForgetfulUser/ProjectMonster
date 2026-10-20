@@ -1441,6 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31873eb88d21814babfdda57a4b67d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSpawnPos_TRSFM: {fileID: 0}
   Player_GO: {fileID: 1510938886}
   GameAreaList:
   - {fileID: 394986848}
@@ -1513,8 +1514,9 @@ MonoBehaviour:
     MagDefMinMax: {x: 0, y: 999}
     SpeedMinMax: {x: 0, y: 999}
   MaxSelectableMonsters: 3
+  MonstersWereSelected: 0
   MonsterDatas: []
-  SelectedMonster: []
+  SelectedMonsters: []
 --- !u!4 &1785321120
 Transform:
   m_ObjectHideFlags: 0
@@ -1583,6 +1585,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1510938891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1901155693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901155694}
+  m_Layer: 0
+  m_Name: Monster Rift
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1901155694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901155693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.078238, y: 9.876788, z: 5.1276217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940759060
 GameObject:
@@ -2701,3 +2734,4 @@ SceneRoots:
   - {fileID: 1630580518}
   - {fileID: 394986847}
   - {fileID: 4193968771018825143}
+  - {fileID: 1901155694}

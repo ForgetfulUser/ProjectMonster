@@ -1,0 +1,1 @@
+{"ID":"","Name":"Gale Maelstrom ","Description":"a giant cyclone funnelled like a reversed whirlpool stretching out obliterating the surounding area ripping and tossing every thing in its path of roughly 4 foot ball fields","Damage":-30,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":7,"MonsterType":3,"Element":4,"Buffs":[]}

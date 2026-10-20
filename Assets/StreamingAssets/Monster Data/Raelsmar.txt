@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":6,"MonsterType1":3,"MonsterType2":4,"Element1":1,"Element2":6,"Name":"Raelsmar","Description":"","Health":{"x":50,"y":50},"TempHealth":0,"Accuracy":100,"PhysicalAttack":20,"MagicalAttack":40,"PhysicalDefense":40,"MagicalDefense":40,"Speed":40,"Abilities":[],"IsNewer":true}

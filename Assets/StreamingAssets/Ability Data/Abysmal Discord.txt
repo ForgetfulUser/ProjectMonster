@@ -1,0 +1,1 @@
+{"ID":"","Name":"Abysmal Discord","Description":"all life ceases not death just a brief deafening of all senses enter a state of nothingness and static.","Damage":-30,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":7,"MonsterType":6,"Element":6,"Buffs":[]}

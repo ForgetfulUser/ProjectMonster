@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public Transform PlayerSpawnPos_TRSFM;
     public GameObject Player_GO;
     public List<GameArea> GameAreaList = new List<GameArea>();
     // Player References
@@ -21,8 +22,9 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(Instance != this)
         {
+            Instance.PlayerSpawnPos_TRSFM = PlayerSpawnPos_TRSFM;
             Destroy(Player_GO); // Won't be needed if Changed to prefab
             Destroy(gameObject);
         }
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour
         // Setup Player
         PlayerController = Player_GO.GetComponent<PlayerController>();
         PlayerTamer = Player_GO.GetComponent<MonsterTamer>();
-        DontDestroyOnLoad(Player_GO);
         LoadedMonsters = MonsterLoader.LoadAllMonsterDatas();
 
         // Load Areas
