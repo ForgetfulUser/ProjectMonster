@@ -1,0 +1,1 @@
+{"ID":"","Name":"A Testsers ","Description":"Description","Damage":0,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":0,"MonsterType":0,"Element":0,"Buffs":[],"BuffNames":["A New BuFfEr"]}

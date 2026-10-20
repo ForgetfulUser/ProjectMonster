@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":0,"MonsterType1":5,"MonsterType2":0,"Element1":5,"Element2":0,"Name":"Asdf","Description":"asdfasdfadf","Health":{"x":15,"y":15},"TempHealth":0,"Accuracy":100,"PhysicalAttack":5,"MagicalAttack":5,"PhysicalDefense":5,"MagicalDefense":5,"Speed":5,"Abilities":[],"AbilityNames":[],"IsNewer":true}

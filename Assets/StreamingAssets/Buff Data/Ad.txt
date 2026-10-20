@@ -1,1 +1,1 @@
-{"ID":"","Name":"Ad","Description":"adfs adsf fd","Sprite":{"instanceID":0},"MaxTurns":2,"Turns":0,"BuffingStat":1,"StatBuffAmount":13,"Condition":0}
+{"ID":"","Name":"Ad","Description":"adfs adsf fd","Sprite":{"instanceID":0},"MaxTurns":0,"TurnsTaken":0,"DoesTargetSelf":false,"AffectingStat":6,"AffectingStatAmount":0,"Condition":0}

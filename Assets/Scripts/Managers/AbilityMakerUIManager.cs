@@ -80,7 +80,7 @@ public class AbilityMakerUIManager : MonoBehaviour
         }
 
         BuffHolders.Clear();
-        
+        AbilityMakerManager.Instance.CreatedAbility.LoadBuffs();
         List<BuffData> buffs = AbilityMakerManager.Instance.CreatedAbility.Buffs;
         foreach(BuffData data in buffs)
         {

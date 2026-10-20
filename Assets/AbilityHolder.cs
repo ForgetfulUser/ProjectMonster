@@ -8,7 +8,7 @@ public class AbilityHolder : MonoBehaviour
     {
         AbilityDisplayerPanel,
         MonsterMakerPanel,
-        AddMonsterPanel
+        AddAbilityPanel
     }
 
     public AbilityData Ability;
@@ -30,8 +30,8 @@ public class AbilityHolder : MonoBehaviour
             case HolderType.MonsterMakerPanel:
                 GetComponent<Button>().onClick.AddListener(SelectMonsterMakerPanelAbility);
                 break;
-            case HolderType.AddMonsterPanel:
-                GetComponent<Button>().onClick.AddListener(SelectAddBAbilityPanelAbility);
+            case HolderType.AddAbilityPanel:
+                GetComponent<Button>().onClick.AddListener(SelectAddAbilityPanelAbility);
                 break;
         }
     }
@@ -46,8 +46,8 @@ public class AbilityHolder : MonoBehaviour
         //MonsterMakerManager.Instance.SelectAbility(Ability);
     }
 
-    public void SelectAddBAbilityPanelAbility()
+    public void SelectAddAbilityPanelAbility()
     {
-        //AddAbilityManager.Instance.DisplayAbility(Ability);
+        AddAbilityManager.Instance.DisplayAbility(Ability);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 [Serializable]
@@ -32,4 +33,14 @@ public class AbilityData
     public MonsterType MonsterType;
     public ElementType Element;
     public List<BuffData> Buffs = new List<BuffData>();
+    public List<string> BuffNames = new List<string>();
+
+    public void LoadBuffs()
+    {
+        Buffs.Clear();
+        foreach(string name in BuffNames)
+        {
+            Buffs.Add(BuffLoader.LoadBuffByName(name));
+        }
+    }
 }

@@ -28,6 +28,19 @@ public class MonsterData
     public int Speed;
 
     public List<AbilityData> Abilities = new List<AbilityData>();
+    public List<string> AbilityNames = new List<string>();
 
     public bool IsNewer;
+
+    public void LoadAbilities()
+    {
+        Debug.Log("BOO");
+        Abilities.Clear();
+        foreach(string name in AbilityNames)
+        {
+            AbilityData data = AbilityLoader.LoadAbilityByName(name);
+            data.LoadBuffs();
+            Abilities.Add(data);
+        }
+    }
 }

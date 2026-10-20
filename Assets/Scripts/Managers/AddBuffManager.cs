@@ -9,7 +9,7 @@ public class AddBuffManager : MonoBehaviour
     public Transform BuffsContent_TRNSFM;
     public BuffHolder BuffHolder_PRFB;
     public List<BuffHolder> BuffHolders = new List<BuffHolder>();
-    public List<BuffData> SelectedBuffs = new List<BuffData>();
+    public List<string> SelectedBuffNames = new List<string>();
     public BuffData DisplayingBuff;
 
     void Awake()
@@ -47,7 +47,7 @@ public class AddBuffManager : MonoBehaviour
     {
         if(isSelecting == true)
         {
-            SelectedBuffs.Add(DisplayingBuff);
+            SelectedBuffNames.Add(DisplayingBuff.Name);
         }
         else
         {
@@ -62,16 +62,16 @@ public class AddBuffManager : MonoBehaviour
 
     private void RemoveBuff()
     {
-        BuffData buffToRemove = DisplayingBuff;
-        foreach(BuffData buff in SelectedBuffs)
+        string buffToRemove = DisplayingBuff.Name;
+        foreach(string name in SelectedBuffNames)
         {
-            if(buff.Name == DisplayingBuff.Name)
+            if(name == DisplayingBuff.Name)
             {
-                buffToRemove = buff;
+                buffToRemove = name;
                 break;
             }
         }
-        SelectedBuffs.Remove(buffToRemove);
+        SelectedBuffNames.Remove(buffToRemove);
     }
 
     public void UpdateBuffHolders()
@@ -84,16 +84,16 @@ public class AddBuffManager : MonoBehaviour
 
     public void Complete()
     {
-        AbilityMakerManager.Instance.ChangeBuffs(SelectedBuffs);
+        AbilityMakerManager.Instance.ChangeBuffs(SelectedBuffNames);
         Close();
     }
 
     public bool IsBuffAdded(BuffData buff)
     {
         bool buffIsAdded = false;
-        foreach (BuffData _buff in SelectedBuffs)
+        foreach (string buffName in SelectedBuffNames)
         {
-            if(_buff.Name == buff.Name)
+            if(buffName == buff.Name)
             {
                 buffIsAdded = true;
                 break;

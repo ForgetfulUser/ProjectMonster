@@ -1,0 +1,1 @@
+{"ID":"","Name":"A New BuFfEr","Description":"DEF+++","Sprite":{"instanceID":0},"MaxTurns":3,"TurnsTaken":0,"DoesTargetSelf":false,"AffectingStat":4,"AffectingStatAmount":9,"Condition":0}

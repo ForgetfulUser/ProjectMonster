@@ -8,6 +8,8 @@ public class MonsterMakerManager : MonoBehaviour
     public GameObject MakerPanel;
     public MonsterDisplayerUIManager MonsterDisplayerUIManager;
     public MonsterMakerUIManager MonsterMakerUIManager;
+    public AddAbilityManager AddAbilityManager;
+
     public MonsterData CreatedMonster;
     public int StatPoints;
 
@@ -202,5 +204,21 @@ public class MonsterMakerManager : MonoBehaviour
         StatPoints -= CreatedMonster.Speed;
 
         // 
+    }
+
+    public void OpenAddAbilitiesPanel()
+    {
+        List<AbilityData> abilities = AbilityLoader.LoadAllAbilityDatasByRarity(CreatedMonster.MonsterRarity);
+        AddAbilityManager.DisplayAbilities(abilities);
+    }
+
+    public bool SetAbility(string name)
+    {
+        if (CreatedMonster.AbilityNames.Count < 4)
+        {
+            CreatedMonster.AbilityNames.Add(name);
+            return true;
+        }
+        return false;
     }
 }

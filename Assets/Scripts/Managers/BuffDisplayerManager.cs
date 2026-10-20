@@ -23,7 +23,7 @@ public class BuffDisplayerManager : MonoBehaviour
         }
         Holders.Clear();
 
-        List<BuffData> buffs = BuffLoader.LoadAllBuffDatas(BuffLoader.BuffDataPath);
+        List<BuffData> buffs = BuffLoader.LoadAllBuffDatas();
         if (buffs.Count == 0) Debug.Log("NO MONSTER");
         foreach (BuffData buff in buffs)
         {

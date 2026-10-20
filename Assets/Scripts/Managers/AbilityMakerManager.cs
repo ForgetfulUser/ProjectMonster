@@ -142,9 +142,9 @@ public class AbilityMakerManager : MonoBehaviour
         AbilityMakerUIManager.UpdateMakerUI();
     }
 
-    public void ChangeBuffs(List<BuffData> buffs) 
+    public void ChangeBuffs(List<string> buffs) 
     {
-        CreatedAbility.Buffs = buffs;
+        CreatedAbility.BuffNames = buffs;
         AbilityMakerUIManager.DisplayBuffs();
         AbilityMakerUIManager.UpdateMakerUI();
     }
@@ -157,7 +157,7 @@ public class AbilityMakerManager : MonoBehaviour
 
     public void DisplayAddBuffs()
     {
-        List<BuffData> buffs = BuffLoader.LoadAllBuffDatas(BuffLoader.BuffDataPath);
+        List<BuffData> buffs = BuffLoader.LoadAllBuffDatas();
         AddBuffManager.DisplayBuffs(buffs);
         AbilityMakerUIManager.UpdateMakerUI();
     }

@@ -52,20 +52,20 @@ public class BuffLoader : MonoBehaviour
         return buff;
     }
 
-    public static List<BuffData> LoadAllBuffDatas(string path)
+    public static List<BuffData> LoadAllBuffDatas()
     {
         // The master list that collects all individual JSON file items
         List<BuffData> allItemsList = new List<BuffData>();
 
         // Ensure the directory actually exists before trying to read it
-        if (!Directory.Exists(path))
+        if (!Directory.Exists(BuffDataPath))
         {
-            Debug.LogError($"Directory not found at: {path}");
+            Debug.LogError($"Directory not found at: {BuffDataPath}");
             return null;
         }
 
         // Get all files matching the .json extension inside the folder
-        string[] filePaths = Directory.GetFiles(path, "*.txt");
+        string[] filePaths = Directory.GetFiles(BuffDataPath, "*.txt");
 
         foreach (string filePath in filePaths)
         {
