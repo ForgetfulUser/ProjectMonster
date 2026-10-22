@@ -59998,6 +59998,7 @@ MonoBehaviour:
   RarityType_TXT: {fileID: 1517357864}
   MonsterType_TXT: {fileID: 359318580}
   ElementType_TXT: {fileID: 1259893856}
+  Damage_TXT: {fileID: 1943569422}
   SelectBuffButton_GO: {fileID: 1528290135}
   DeselectBuffButton_GO: {fileID: 1587769855}
 --- !u!1 &2037706378

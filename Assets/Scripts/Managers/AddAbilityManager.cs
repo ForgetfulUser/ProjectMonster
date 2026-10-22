@@ -32,6 +32,8 @@ public class AddAbilityManager : MonoBehaviour
             AbilityHolders.Add(buffHolder);
         }
 
+        SelectedAbilityNames = MonsterMakerManager.Instance.CreatedMonster.AbilityNames;
+
         UpdateAbilityHolders();
         DisplayAbility(null);
         AbilitiesToAddPanel_GO.SetActive(true);
@@ -40,7 +42,7 @@ public class AddAbilityManager : MonoBehaviour
     public void DisplayAbility(AbilityData ability)
     {
         DisplayingAbility = ability;
-        // AddAbilityUIManager.DisplayAbility(ability);
+        AddAbilityUIManager.DisplayAbility(ability);
     }
 
     public void SelectAbility(bool isSelecting)
@@ -56,7 +58,7 @@ public class AddAbilityManager : MonoBehaviour
 
         UpdateAbilityHolders();
 
-        // AddAbilityUIManager.DisplayAbility(DisplayingAbility);
+        AddAbilityUIManager.DisplayAbility(DisplayingAbility);
     }
 
     private void RemoveBuff()
@@ -83,7 +85,7 @@ public class AddAbilityManager : MonoBehaviour
 
     public void Complete()
     {
-        AbilityMakerManager.Instance.ChangeBuffs(SelectedAbilityNames);
+        MonsterMakerManager.Instance.CreatedMonster.AbilityNames = SelectedAbilityNames;
         Close();
     }
 

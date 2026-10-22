@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MonsterMakerManager : MonoBehaviour
 {
+    public static MonsterMakerManager Instance;
+
     public GameObject MakerPanel;
     public MonsterDisplayerUIManager MonsterDisplayerUIManager;
     public MonsterMakerUIManager MonsterMakerUIManager;
@@ -19,6 +21,11 @@ public class MonsterMakerManager : MonoBehaviour
     public List<int> StatPoints_LST = new List<int>();
     public Dictionary<RarityType, int> StatPoints_DIC = new Dictionary<RarityType, int>();
     public string OldName;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

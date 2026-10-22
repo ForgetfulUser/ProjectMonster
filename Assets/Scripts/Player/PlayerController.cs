@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.forward * moveDir.y + transform.right * moveDir.x;
 
         currentSpeed = isSprinting ? MoveSpeed + SprintSpeed : MoveSpeed;
-        vel = (move * currentSpeed * Time.deltaTime);
+        vel = (move * currentSpeed * Time.fixedDeltaTime);
         vel.y = rb.linearVelocity.y;
 
         // Read mouse movement axes
