@@ -228,4 +228,9 @@ public class MonsterMakerManager : MonoBehaviour
         }
         return false;
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
