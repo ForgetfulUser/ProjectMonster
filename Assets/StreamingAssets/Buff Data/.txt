@@ -1,1 +1,0 @@
-{"ID":"","Name":"","Description":"","Sprite":{"instanceID":0},"MaxTurns":2,"TurnsTaken":0,"DoesTargetSelf":true,"AffectingStat":5,"AffectingStatAmount":30,"Condition":5}

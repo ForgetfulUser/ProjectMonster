@@ -1,0 +1,1 @@
+{"ID":"","Name":"Weaken","Description":"Weakens the target","Sprite":{"instanceID":0},"MaxTurns":0,"TurnsTaken":0,"DoesTargetSelf":false,"AffectingStat":1,"AffectingStatAmount":-10,"Condition":5}

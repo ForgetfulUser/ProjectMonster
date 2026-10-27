@@ -1,0 +1,1 @@
+{"ID":"","Name":"Shadow Scratch","Description":"Scratch from the shadow","Damage":-5,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":2,"MonsterType":0,"Element":6,"Buffs":[],"BuffNames":[]}
