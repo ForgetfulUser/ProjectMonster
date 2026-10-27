@@ -8,6 +8,7 @@ public class MonsterDisplayerUIManager : MonoBehaviour
     public static MonsterDisplayerUIManager Instance;
     [Header("Monster Maker Specific Variables")]
     public MonsterMakerManager MonsterMakerManager;
+    public AddAbilityManager ViewAbilityManager;
     public GameObject DisplayPanel;
 
     [Header("Monster Giver Specific Variables")]
@@ -75,6 +76,8 @@ public class MonsterDisplayerUIManager : MonoBehaviour
 
     public void SelectMonster(MonsterHolder monsterHolder)
     {
+        Button button = GetComponent<Button>();
+        
         SelectedHolder = monsterHolder;
         SelectedMonster = SelectedHolder.Monster;
 
@@ -133,6 +136,11 @@ public class MonsterDisplayerUIManager : MonoBehaviour
             CloseButton_GO.SetActive(true);
             CompleteButton_GO.SetActive(false);
         }
+    }
+
+    public void OpenAddAbilitiesPanel()
+    {
+        ViewAbilityManager.DisplayAbilities(SelectedMonster.Abilities);
     }
 
     public void BackToMakeMonters()

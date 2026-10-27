@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class AddAbilityManager : MonoBehaviour
 {
-    public static AddAbilityManager Instance;
+    public static AddAbilityManager AddAbilityInstance;
+    public static AddAbilityManager ViewAbilityInstance;
+    public bool IsAddAbility = true;
     public AddAbilityUIManager AddAbilityUIManager;
     public GameObject AbilitiesToAddPanel_GO;
     public Transform AbilitiesContent_TRNSFM;
@@ -14,7 +16,10 @@ public class AddAbilityManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if(IsAddAbility)
+            AddAbilityInstance = this;
+        else
+            ViewAbilityInstance = this;
     }
 
     public void DisplayAbilities(List<AbilityData> abilities)
@@ -28,7 +33,8 @@ public class AddAbilityManager : MonoBehaviour
         foreach (AbilityData ability in abilities)
         {
             AbilityHolder buffHolder = Instantiate(AbilityHolder_PRFB, AbilitiesContent_TRNSFM);
-            buffHolder.InitiateHolder(ability, AbilityHolder.HolderType.AddAbilityPanel);
+            AbilityHolder.HolderType holderType = IsAddAbility ? AbilityHolder.HolderType.AddAbilityPanel : AbilityHolder.HolderType.ViewAbilityPanel;
+            buffHolder.InitiateHolder(ability, holderType);
             AbilityHolders.Add(buffHolder);
         }
 

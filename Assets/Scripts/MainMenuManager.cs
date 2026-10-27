@@ -10,6 +10,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void Maker()
     {
-        SceneManager.LoadScene("Maker");
+        SceneManager.LoadScene("Monster Maker Scene");
     }
 }

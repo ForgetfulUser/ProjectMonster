@@ -35,21 +35,20 @@ public class BuffLoader : MonoBehaviour
 
     public static BuffData LoadBuffByPath(string path)
     {
-        BuffData buff;
+        BuffData data;
         if (File.Exists(path)) // Check file path
         {
-            string monsterStr = File.ReadAllText(path);
-            buff = JsonUtility.FromJson<BuffData>(monsterStr);
-            string spritePath = "Sprites/Monsters/" + buff.Name;
-            buff.Sprite = Resources.Load<Sprite>(spritePath);
+            string buffStr = File.ReadAllText(path);
+            data = JsonUtility.FromJson<BuffData>(buffStr);
+            data.LoadBuff();
         }
         else
         {
-            buff = new BuffData();
+            data = new BuffData();
             Debug.Log("FILE NOT FOUND");
         }
 
-        return buff;
+        return data;
     }
 
     public static List<BuffData> LoadAllBuffDatas()

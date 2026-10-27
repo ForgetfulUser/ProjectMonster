@@ -17,6 +17,11 @@ public class BuffData
     public int AffectingStatAmount;
     public ConditionType Condition = ConditionType.MAX_CONDITION_TYPE;
 
+    public void LoadBuff()
+    {
+        string spritePath = "Sprites/Abilities/" + Name;
+        Sprite = Resources.Load<Sprite>(spritePath);
+    }
 }
 
 [Serializable]
@@ -35,12 +40,14 @@ public class AbilityData
     public List<BuffData> Buffs = new List<BuffData>();
     public List<string> BuffNames = new List<string>();
 
-    public void LoadBuffs()
+    public void LoadAbility()
     {
         Buffs.Clear();
         foreach(string name in BuffNames)
         {
             Buffs.Add(BuffLoader.LoadBuffByName(name));
         }
+        string spritePath = "Sprites/Abilities/" + Name;
+        Sprite = Resources.Load<Sprite>(spritePath);
     }
 }

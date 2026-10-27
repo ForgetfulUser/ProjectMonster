@@ -28,7 +28,7 @@ public class AbilityLoader
         {
             string monsterStr = File.ReadAllText(path);
             Ability = JsonUtility.FromJson<AbilityData>(monsterStr);
-            Ability.LoadBuffs();
+            Ability.LoadAbility();
             string spritePath = "Sprites/Monsters/" + Ability.Name;
             Ability.Sprite = Resources.Load<Sprite>(spritePath);
         }

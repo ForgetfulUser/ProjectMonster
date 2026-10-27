@@ -31,7 +31,6 @@ public class AbilityMakerUIManager : MonoBehaviour
     public void UpdateMakerUI() 
     {
         AbilityData ability = AbilityMakerManager.Instance.CreatedAbility;
-        Debug.Log(ability.Damage);
         Name_IF.text = ability.Name;
         string damageText = "Healing/Damage: ";
         if(ability.Damage > 0)
@@ -80,7 +79,7 @@ public class AbilityMakerUIManager : MonoBehaviour
         }
 
         BuffHolders.Clear();
-        AbilityMakerManager.Instance.CreatedAbility.LoadBuffs();
+        AbilityMakerManager.Instance.CreatedAbility.LoadAbility();
         List<BuffData> buffs = AbilityMakerManager.Instance.CreatedAbility.Buffs;
         foreach(BuffData data in buffs)
         {

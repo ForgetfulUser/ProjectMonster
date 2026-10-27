@@ -32,15 +32,17 @@ public class MonsterData
 
     public bool IsNewer;
 
-    public void LoadAbilities()
+    public void LoadMonster()
     {
         Debug.Log("BOO");
         Abilities.Clear();
         foreach(string name in AbilityNames)
         {
             AbilityData data = AbilityLoader.LoadAbilityByName(name);
-            data.LoadBuffs();
+            data.LoadAbility();
             Abilities.Add(data);
         }
+        string spritePath = "Sprites/Monsters/" + Name;
+        Sprite = Resources.Load<Sprite>(spritePath);
     }
 }

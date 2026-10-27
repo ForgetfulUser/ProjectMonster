@@ -71,9 +71,7 @@ public class MonsterLoader : MonoBehaviour
         {
             string monsterStr = File.ReadAllText(path);
             monster = JsonUtility.FromJson<MonsterData>(monsterStr);
-            monster.LoadAbilities();
-            string spritePath = "Sprites/Monsters/" + monster.Name;
-            monster.Sprite = Resources.Load<Sprite>(spritePath);
+            monster.LoadMonster();
         }
         else
         {

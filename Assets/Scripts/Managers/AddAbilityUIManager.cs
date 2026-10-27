@@ -20,37 +20,6 @@ public class AddAbilityUIManager : MonoBehaviour
     {
         if (abilityData != null)
         {
-            /*
-            string statTypeText = "Stat Type Not Found";
-            switch (abilityData.AffectingStat)
-            {
-                case StatType.Health:
-                    statTypeText = "Health";
-                    break;
-                case StatType.PhysicalDefense:
-                    statTypeText = "Physical Defense";
-                    break;
-                case StatType.PhysicalAttack:
-                    statTypeText = "Physical Attack";
-                    break;
-                case StatType.MagicalDefense:
-                    statTypeText = "Magical Defense";
-                    break;
-                case StatType.MagicalAttack:
-                    statTypeText = "Magical Attack";
-                    break;
-                case StatType.Speed:
-                    statTypeText = "Speed";
-                    break;
-                case StatType.MAX_STAT_TYPE:
-                    statTypeText = "None";
-                    break;
-            }
-
-
-            TargetSelfCheckMark_GO.SetActive(abilityData.DoesTargetSelf);
-            */
-
             Name_TXT.text = abilityData.Name;
             RarityType_TXT.text = abilityData.MonsterRarity.ToString();
             MonsterType_TXT.text = abilityData.MonsterType.ToString();
@@ -72,9 +41,11 @@ public class AddAbilityUIManager : MonoBehaviour
             }
             Damage_TXT.text += abilityData.Damage.ToString();
 
-            bool isAbilityAdded = AddAbilityManager.Instance.IsAbilityAdded(abilityData);
-            SelectBuffButton_GO.SetActive(!isAbilityAdded);
-            DeselectBuffButton_GO.SetActive(isAbilityAdded);
+            bool isAbilityAdded = AddAbilityManager.AddAbilityInstance.IsAbilityAdded(abilityData);
+            if(SelectBuffButton_GO)
+                SelectBuffButton_GO.SetActive(!isAbilityAdded);
+            if (DeselectBuffButton_GO)
+                DeselectBuffButton_GO.SetActive(isAbilityAdded);
         }
         else
         {
@@ -88,8 +59,10 @@ public class AddAbilityUIManager : MonoBehaviour
 
             //TargetSelfCheckMark_GO.SetActive(false);
 
-            SelectBuffButton_GO.SetActive(false);
-            DeselectBuffButton_GO.SetActive(false);
+            if (SelectBuffButton_GO)
+                SelectBuffButton_GO.SetActive(false);
+            if (DeselectBuffButton_GO)
+                DeselectBuffButton_GO.SetActive(false);
         }
     }
 }
