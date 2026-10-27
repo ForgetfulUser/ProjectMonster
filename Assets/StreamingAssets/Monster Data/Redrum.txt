@@ -1,1 +1,0 @@
-{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":1,"MonsterType1":1,"MonsterType2":0,"Element1":3,"Element2":0,"Name":"Redrum","Description":"His rum is red","Health":{"x":32,"y":32},"TempHealth":0,"Accuracy":100,"PhysicalAttack":16,"MagicalAttack":5,"PhysicalDefense":26,"MagicalDefense":5,"Speed":5,"Abilities":[],"IsNewer":true}

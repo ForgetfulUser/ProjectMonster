@@ -1,0 +1,1 @@
+{"ID":"","Name":"Magical Fortification","Description":"","Sprite":{"instanceID":0},"MaxTurns":5,"TurnsTaken":0,"DoesTargetSelf":true,"AffectingStat":4,"AffectingStatAmount":10,"Condition":5}

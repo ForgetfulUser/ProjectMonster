@@ -1,1 +1,0 @@
-{"ID":"","Name":"It's An Ability","Description":"Description","Damage":0,"DoesTargetSelf":false,"Sprite":{"instanceID":0},"MonsterRarity":0,"MonsterType":0,"Element":0,"Buffs":[{"ID":"","Name":"Target Self","Description":"Target your self","Sprite":{"instanceID":0},"MaxTurns":5,"TurnsTaken":0,"DoesTargetSelf":true,"AffectingStat":0,"AffectingStatAmount":30,"Condition":5}]}
