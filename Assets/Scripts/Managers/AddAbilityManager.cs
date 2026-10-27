@@ -81,6 +81,11 @@ public class AddAbilityManager : MonoBehaviour
         SelectedAbilityNames.Remove(buffToRemove);
     }
 
+    public void DisplayBuff(BuffData buff)
+    {
+        AddAbilityUIManager.DisplayBuff(buff);
+    }
+
     public void UpdateAbilityHolders()
     {
         foreach (AbilityHolder holder in AbilityHolders)

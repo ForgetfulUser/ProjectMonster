@@ -9,7 +9,9 @@ public class BuffHolder : MonoBehaviour
         AbilityMakerPanel,
         BuffMakerPanel,
         AddBuffPanel,
-        AbilityDisplayerPanel
+        AbilityDisplayerPanel,
+        AddAbilityPanel,
+        ViewAbilityPanel
     }
 
     public BuffData Buff;
@@ -37,6 +39,12 @@ public class BuffHolder : MonoBehaviour
             case HolderType.AddBuffPanel:
                 GetComponent<Button>().onClick.AddListener(SelectAddBuffPanelBuff);
                 break;
+            case HolderType.AddAbilityPanel:
+                GetComponent<Button>().onClick.AddListener(SelectAddAbilityPanelBuff);
+                break;
+            case HolderType.ViewAbilityPanel:
+                GetComponent<Button>().onClick.AddListener(SelectViewAbilityPanelBuff);
+                break;
         }
     }
 
@@ -58,5 +66,15 @@ public class BuffHolder : MonoBehaviour
     public void SelectAddBuffPanelBuff()
     {
         AddBuffManager.Instance.DisplayBuff(Buff);
+    }
+
+    public void SelectAddAbilityPanelBuff()
+    {
+        AddAbilityManager.AddAbilityInstance.DisplayBuff(Buff);
+    }
+
+    public void SelectViewAbilityPanelBuff()
+    {
+        AddAbilityManager.ViewAbilityInstance.DisplayBuff(Buff);
     }
 }

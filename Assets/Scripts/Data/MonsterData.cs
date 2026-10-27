@@ -34,7 +34,6 @@ public class MonsterData
 
     public void LoadMonster()
     {
-        Debug.Log("BOO");
         Abilities.Clear();
         foreach(string name in AbilityNames)
         {
