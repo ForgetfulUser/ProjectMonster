@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SearchFilterSystem
@@ -37,14 +38,15 @@ public class SearchFilterSystem
                 {
                     monTypeCheck = true;
                 }
-                else if (searchParams.MonsterType1 == monster.MonsterType1)
+                else if (searchParams.MonsterType1 == monster.MonsterType1 || searchParams.MonsterType1 == monster.MonsterType2)
                 {
                     // Type 2
                     if (searchParams.MonsterType2 == MonsterType.None)
                     {
                         monTypeCheck = true;
+                        if(monster.MonsterType2 != MonsterType.None && searchParams.IsOneMonsterType) monTypeCheck = false;
                     }
-                    else if (searchParams.MonsterType2 == monster.MonsterType2)
+                    else if ((searchParams.MonsterType2 == monster.MonsterType2 || searchParams.MonsterType2 == monster.MonsterType1) && searchParams.IsOneMonsterType == false)
                     {
                         monTypeCheck = true;
                     }
@@ -58,14 +60,15 @@ public class SearchFilterSystem
                 {
                     elementCheck = true;
                 }
-                else if (searchParams.Element1 == monster.Element1)
+                else if (searchParams.Element1 == monster.Element1 || searchParams.Element1 == monster.Element2)
                 {
                     // Type 2
                     if (searchParams.Element2 == ElementType.None)
                     {
                         elementCheck = true;
+                        if (monster.Element2 != ElementType.None && searchParams.IsOneElementType) monTypeCheck = false;
                     }
-                    else if (searchParams.Element2 == monster.Element2)
+                    else if ((searchParams.Element2 == monster.Element2 || searchParams.Element2 == monster.Element1) && searchParams.IsOneElementType == false)
                     {
                         elementCheck = true;
                     }
@@ -128,6 +131,7 @@ public class SearchFilterSystem
                 finalMonsterList.Add(monster);
             }
         }
+
         return finalMonsterList;
     }
 }

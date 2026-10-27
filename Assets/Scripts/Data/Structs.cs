@@ -5,10 +5,12 @@ using UnityEngine;
 public struct SearchParameter
 {
     public string Name;
+    public bool IsOneMonsterType;
     public MonsterType MonsterType1;
     public MonsterType MonsterType2;
     [Tooltip("Lowest Min is 0 and Highest Max is 6")]
     public Vector2 RarityMinMax;
+    public bool IsOneElementType;
     public ElementType Element1;
     public ElementType Element2;
 

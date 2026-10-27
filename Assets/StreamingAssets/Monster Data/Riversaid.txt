@@ -1,0 +1,1 @@
+{"MonsterID":"","Sprite":{"instanceID":0},"MonsterRarity":2,"MonsterType1":2,"MonsterType2":0,"Element1":2,"Element2":0,"Name":"Riversaid","Description":"Sleeps by dams.","Health":{"x":37,"y":37},"TempHealth":0,"Accuracy":100,"PhysicalAttack":13,"MagicalAttack":11,"PhysicalDefense":22,"MagicalDefense":22,"Speed":5,"Abilities":[],"AbilityNames":[],"IsNewer":true}
